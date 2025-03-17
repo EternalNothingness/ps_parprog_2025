@@ -1,4 +1,5 @@
-CFLAGS = -std=gnu11 -Wall -Werror -Wextra -fopenmp
+OPT = -O0
+CFLAGS = -std=gnu11 -Wall -Werror -Wextra -fopenmp $(OPT)
 
 .PHONY: all
 all: slow medium fast execall

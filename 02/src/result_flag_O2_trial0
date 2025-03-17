@@ -1,0 +1,16 @@
+OMP_NUM_THREADS=1
+executing: slow sum: 67108864, time: 0.9707 seconds
+executing: medium sum: 67108864, time: 0.3474 seconds
+executing: fast sum: 67108864, time: 0.0000 seconds
+OMP_NUM_THREADS=2
+executing: slow sum: 67108864, time: 1.3746 seconds
+executing: medium sum: 67108864, time: 1.9830 seconds
+executing: fast sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS=3
+executing: slow sum: 67108864, time: 2.3546 seconds
+executing: medium sum: 67108864, time: 1.8262 seconds
+executing: fast sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS=4
+executing: slow sum: 67108864, time: 2.6091 seconds
+executing: medium sum: 67108864, time: 1.8026 seconds
+executing: fast sum: 67108864, time: 0.0001 seconds
