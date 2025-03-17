@@ -1,51 +1,39 @@
-OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 1.0254 seconds
-executing: medium, sum: 67108864, time: 0.3476 seconds
-executing: fast, sum: 67108864, time: 0.0000 seconds
-OMP_NUM_THREADS=2
-executing: slow, sum: 67108864, time: 1.5199 seconds
-executing: medium, sum: 67108864, time: 1.9449 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
-OMP_NUM_THREADS=3
-executing: slow, sum: 67108864, time: 1.9781 seconds
-executing: medium, sum: 67108864, time: 1.8614 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
-OMP_NUM_THREADS=4
-executing: slow, sum: 67108864, time: 2.8124 seconds
-executing: medium, sum: 67108864, time: 2.0184 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 1, executing: slow, sum: 67108864, time: 1.2493 seconds
+OMP_NUM_THREADS: 1, executing: medium, sum: 67108864, time: 0.4167 seconds
+OMP_NUM_THREADS: 1, executing: fast, sum: 67108864, time: 0.0000 seconds
+OMP_NUM_THREADS: 2, executing: slow, sum: 67108864, time: 1.7365 seconds
+OMP_NUM_THREADS: 2, executing: medium, sum: 67108864, time: 1.4431 seconds
+OMP_NUM_THREADS: 2, executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 3, executing: slow, sum: 67108864, time: 2.5760 seconds
+OMP_NUM_THREADS: 3, executing: medium, sum: 67108864, time: 1.8297 seconds
+OMP_NUM_THREADS: 3, executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 4, executing: slow, sum: 67108864, time: 2.8258 seconds
+OMP_NUM_THREADS: 4, executing: medium, sum: 67108864, time: 1.6667 seconds
+OMP_NUM_THREADS: 4, executing: fast, sum: 67108864, time: 0.0001 seconds
 
-OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 0.9686 seconds
-executing: medium, sum: 67108864, time: 0.3484 seconds
-executing: fast, sum: 67108864, time: 0.0000 seconds
-OMP_NUM_THREADS=2
-executing: slow, sum: 67108864, time: 1.6499 seconds
-executing: medium, sum: 67108864, time: 2.0673 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
-OMP_NUM_THREADS=3
-executing: slow, sum: 67108864, time: 2.1855 seconds
-executing: medium, sum: 67108864, time: 1.9386 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
-OMP_NUM_THREADS=4
-executing: slow, sum: 67108864, time: 2.7312 seconds
-executing: medium, sum: 67108864, time: 1.8075 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 1, executing: slow, sum: 67108864, time: 1.0545 seconds
+OMP_NUM_THREADS: 1, executing: medium, sum: 67108864, time: 0.3712 seconds
+OMP_NUM_THREADS: 1, executing: fast, sum: 67108864, time: 0.0000 seconds
+OMP_NUM_THREADS: 2, executing: slow, sum: 67108864, time: 2.1251 seconds
+OMP_NUM_THREADS: 2, executing: medium, sum: 67108864, time: 1.6990 seconds
+OMP_NUM_THREADS: 2, executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 3, executing: slow, sum: 67108864, time: 1.7403 seconds
+OMP_NUM_THREADS: 3, executing: medium, sum: 67108864, time: 1.9125 seconds
+OMP_NUM_THREADS: 3, executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 4, executing: slow, sum: 67108864, time: 2.6262 seconds
+OMP_NUM_THREADS: 4, executing: medium, sum: 67108864, time: 1.6799 seconds
+OMP_NUM_THREADS: 4, executing: fast, sum: 67108864, time: 0.0001 seconds
 
-OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 0.9710 seconds
-executing: medium, sum: 67108864, time: 0.3484 seconds
-executing: fast, sum: 67108864, time: 0.0000 seconds
-OMP_NUM_THREADS=2
-executing: slow, sum: 67108864, time: 1.4905 seconds
-executing: medium, sum: 67108864, time: 1.9960 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
-OMP_NUM_THREADS=3
-executing: slow, sum: 67108864, time: 1.9525 seconds
-executing: medium, sum: 67108864, time: 1.8591 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
-OMP_NUM_THREADS=4
-executing: slow, sum: 67108864, time: 2.7549 seconds
-executing: medium, sum: 67108864, time: 1.9601 seconds
-executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 1, executing: slow, sum: 67108864, time: 1.0282 seconds
+OMP_NUM_THREADS: 1, executing: medium, sum: 67108864, time: 0.3573 seconds
+OMP_NUM_THREADS: 1, executing: fast, sum: 67108864, time: 0.0000 seconds
+OMP_NUM_THREADS: 2, executing: slow, sum: 67108864, time: 1.6292 seconds
+OMP_NUM_THREADS: 2, executing: medium, sum: 67108864, time: 1.6543 seconds
+OMP_NUM_THREADS: 2, executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 3, executing: slow, sum: 67108864, time: 2.5047 seconds
+OMP_NUM_THREADS: 3, executing: medium, sum: 67108864, time: 1.6064 seconds
+OMP_NUM_THREADS: 3, executing: fast, sum: 67108864, time: 0.0001 seconds
+OMP_NUM_THREADS: 4, executing: slow, sum: 67108864, time: 2.6961 seconds
+OMP_NUM_THREADS: 4, executing: medium, sum: 67108864, time: 1.9544 seconds
+OMP_NUM_THREADS: 4, executing: fast, sum: 67108864, time: 0.0001 seconds
 

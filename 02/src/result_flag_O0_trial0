@@ -1,6 +1,0 @@
-OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 0.9697 seconds
-executing: medium, sum: 67108864, time: 0.3477 seconds
-executing: fast, sum: 67108864, time: 0.1458 seconds
-OMP_NUM_THREADS=2
-executing: slow, 

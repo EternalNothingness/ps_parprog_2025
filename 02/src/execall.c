@@ -30,8 +30,8 @@ int main(int argc, char** argv) {
     for (long i = 1; i <=nproc; ++i) { // test all programs with 1 up to nproc cpu's
         char* nproc_str=ltostr(i);
         setenv("OMP_NUM_THREADS", nproc_str, 1);
-        printf("OMP_NUM_THREADS=%s\n", getenv("OMP_NUM_THREADS"));
-        fflush(stdout);
+        //printf("OMP_NUM_THREADS=%s\n", getenv("OMP_NUM_THREADS"));
+        //fflush(stdout);
         free(nproc_str); // setenv creates a copy of the original string
         for(long j=2; j<argc; ++j) { // execute all programs
             pid_t pid=fork();
@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
                 perror("fork");
                 return EXIT_FAILURE;
             } else if(pid==0) { // child process
-                printf("executing: %s, ", *(argv+j));
+                printf("OMP_NUM_THREADS: %s, executing: %s, ", getenv("OMP_NUM_THREADS"), *(argv+j));
                 fflush(stdout);
                 execl(*(argv+j),*(argv+j),NULL);
                 perror("execl");
