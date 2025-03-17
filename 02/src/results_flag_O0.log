@@ -1,51 +1,51 @@
 OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 0.9801 seconds
-executing: medium, sum: 67108864, time: 0.3487 seconds
-executing: fast, sum: 67108864, time: 0.1435 seconds
+executing: slow, sum: 67108864, time: 0.9812 seconds
+executing: medium, sum: 67108864, time: 0.3477 seconds
+executing: fast, sum: 67108864, time: 0.1436 seconds
 OMP_NUM_THREADS=2
-executing: slow, sum: 67108864, time: 1.6664 seconds
-executing: medium, sum: 67108864, time: 1.8751 seconds
-executing: fast, sum: 67108864, time: 0.0722 seconds
+executing: slow, sum: 67108864, time: 1.5294 seconds
+executing: medium, sum: 67108864, time: 1.8939 seconds
+executing: fast, sum: 67108864, time: 0.0725 seconds
 OMP_NUM_THREADS=3
-executing: slow, sum: 67108864, time: 2.4169 seconds
-executing: medium, sum: 67108864, time: 1.7474 seconds
+executing: slow, sum: 67108864, time: 2.0970 seconds
+executing: medium, sum: 67108864, time: 1.6698 seconds
 executing: fast, sum: 67108864, time: 0.0537 seconds
 OMP_NUM_THREADS=4
-executing: slow, sum: 67108864, time: 2.6934 seconds
-executing: medium, sum: 67108864, time: 1.8523 seconds
-executing: fast, sum: 67108864, time: 0.0510 seconds
-
-OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 1.0102 seconds
-executing: medium, sum: 67108864, time: 0.3561 seconds
-executing: fast, sum: 67108864, time: 0.1422 seconds
-OMP_NUM_THREADS=2
-executing: slow, sum: 67108864, time: 1.5634 seconds
-executing: medium, sum: 67108864, time: 1.6740 seconds
-executing: fast, sum: 67108864, time: 0.0731 seconds
-OMP_NUM_THREADS=3
-executing: slow, sum: 67108864, time: 2.1625 seconds
-executing: medium, sum: 67108864, time: 1.7927 seconds
-executing: fast, sum: 67108864, time: 0.0537 seconds
-OMP_NUM_THREADS=4
-executing: slow, sum: 67108864, time: 2.8203 seconds
-executing: medium, sum: 67108864, time: 1.6547 seconds
-executing: fast, sum: 67108864, time: 0.0505 seconds
-
-OMP_NUM_THREADS=1
-executing: slow, sum: 67108864, time: 1.0168 seconds
-executing: medium, sum: 67108864, time: 0.3546 seconds
-executing: fast, sum: 67108864, time: 0.1424 seconds
-OMP_NUM_THREADS=2
-executing: slow, sum: 67108864, time: 1.4944 seconds
-executing: medium, sum: 67108864, time: 1.8789 seconds
-executing: fast, sum: 67108864, time: 0.0721 seconds
-OMP_NUM_THREADS=3
-executing: slow, sum: 67108864, time: 2.2862 seconds
-executing: medium, sum: 67108864, time: 1.5862 seconds
-executing: fast, sum: 67108864, time: 0.0537 seconds
-OMP_NUM_THREADS=4
-executing: slow, sum: 67108864, time: 2.6178 seconds
-executing: medium, sum: 67108864, time: 1.6524 seconds
+executing: slow, sum: 67108864, time: 2.5601 seconds
+executing: medium, sum: 67108864, time: 1.7919 seconds
 executing: fast, sum: 67108864, time: 0.0506 seconds
+
+OMP_NUM_THREADS=1
+executing: slow, sum: 67108864, time: 0.9731 seconds
+executing: medium, sum: 67108864, time: 0.3495 seconds
+executing: fast, sum: 67108864, time: 0.1420 seconds
+OMP_NUM_THREADS=2
+executing: slow, sum: 67108864, time: 1.6758 seconds
+executing: medium, sum: 67108864, time: 1.7013 seconds
+executing: fast, sum: 67108864, time: 0.0730 seconds
+OMP_NUM_THREADS=3
+executing: slow, sum: 67108864, time: 2.4167 seconds
+executing: medium, sum: 67108864, time: 1.5051 seconds
+executing: fast, sum: 67108864, time: 0.0538 seconds
+OMP_NUM_THREADS=4
+executing: slow, sum: 67108864, time: 2.7916 seconds
+executing: medium, sum: 67108864, time: 1.8576 seconds
+executing: fast, sum: 67108864, time: 0.0521 seconds
+
+OMP_NUM_THREADS=1
+executing: slow, sum: 67108864, time: 0.9755 seconds
+executing: medium, sum: 67108864, time: 0.3499 seconds
+executing: fast, sum: 67108864, time: 0.1454 seconds
+OMP_NUM_THREADS=2
+executing: slow, sum: 67108864, time: 1.5828 seconds
+executing: medium, sum: 67108864, time: 1.8386 seconds
+executing: fast, sum: 67108864, time: 0.0750 seconds
+OMP_NUM_THREADS=3
+executing: slow, sum: 67108864, time: 2.4283 seconds
+executing: medium, sum: 67108864, time: 1.6427 seconds
+executing: fast, sum: 67108864, time: 0.0548 seconds
+OMP_NUM_THREADS=4
+executing: slow, sum: 67108864, time: 2.8126 seconds
+executing: medium, sum: 67108864, time: 1.8025 seconds
+executing: fast, sum: 67108864, time: 0.0505 seconds
 
