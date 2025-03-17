@@ -1,0 +1,51 @@
+OMP_NUM_THREADS=1
+executing: slow, sum: 67108864, time: 0.9801 seconds
+executing: medium, sum: 67108864, time: 0.3487 seconds
+executing: fast, sum: 67108864, time: 0.1435 seconds
+OMP_NUM_THREADS=2
+executing: slow, sum: 67108864, time: 1.6664 seconds
+executing: medium, sum: 67108864, time: 1.8751 seconds
+executing: fast, sum: 67108864, time: 0.0722 seconds
+OMP_NUM_THREADS=3
+executing: slow, sum: 67108864, time: 2.4169 seconds
+executing: medium, sum: 67108864, time: 1.7474 seconds
+executing: fast, sum: 67108864, time: 0.0537 seconds
+OMP_NUM_THREADS=4
+executing: slow, sum: 67108864, time: 2.6934 seconds
+executing: medium, sum: 67108864, time: 1.8523 seconds
+executing: fast, sum: 67108864, time: 0.0510 seconds
+
+OMP_NUM_THREADS=1
+executing: slow, sum: 67108864, time: 1.0102 seconds
+executing: medium, sum: 67108864, time: 0.3561 seconds
+executing: fast, sum: 67108864, time: 0.1422 seconds
+OMP_NUM_THREADS=2
+executing: slow, sum: 67108864, time: 1.5634 seconds
+executing: medium, sum: 67108864, time: 1.6740 seconds
+executing: fast, sum: 67108864, time: 0.0731 seconds
+OMP_NUM_THREADS=3
+executing: slow, sum: 67108864, time: 2.1625 seconds
+executing: medium, sum: 67108864, time: 1.7927 seconds
+executing: fast, sum: 67108864, time: 0.0537 seconds
+OMP_NUM_THREADS=4
+executing: slow, sum: 67108864, time: 2.8203 seconds
+executing: medium, sum: 67108864, time: 1.6547 seconds
+executing: fast, sum: 67108864, time: 0.0505 seconds
+
+OMP_NUM_THREADS=1
+executing: slow, sum: 67108864, time: 1.0168 seconds
+executing: medium, sum: 67108864, time: 0.3546 seconds
+executing: fast, sum: 67108864, time: 0.1424 seconds
+OMP_NUM_THREADS=2
+executing: slow, sum: 67108864, time: 1.4944 seconds
+executing: medium, sum: 67108864, time: 1.8789 seconds
+executing: fast, sum: 67108864, time: 0.0721 seconds
+OMP_NUM_THREADS=3
+executing: slow, sum: 67108864, time: 2.2862 seconds
+executing: medium, sum: 67108864, time: 1.5862 seconds
+executing: fast, sum: 67108864, time: 0.0537 seconds
+OMP_NUM_THREADS=4
+executing: slow, sum: 67108864, time: 2.6178 seconds
+executing: medium, sum: 67108864, time: 1.6524 seconds
+executing: fast, sum: 67108864, time: 0.0506 seconds
+
