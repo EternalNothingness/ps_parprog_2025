@@ -1,9 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
+#include <sys/queue.h>
+
+// computes mean (avg)
+double mean(double* values, size_t len) {
+    double result=0;
+    for(size_t i=0; i<len; result+=*(values+i++));
+    return result/len;
+}
+
+// computes sample standard deviation
+double sstddev(double mean, double* values, size_t len) {
+    double result=0;
+    for(size_t i=0; i<len; result+=pow((*(values+i++)-mean), 2));
+    return sqrt(result/(len-1)); // see definition of *sample* standard deviation 
+    
+}
 
 int main(int argc, char** argv) {
-   if(argc!=2) {
+   if(argc!=3) {
         fprintf(stderr, "Usage: ./process_data INPUTFILE\n");
         return EXIT_FAILURE;
     }
