@@ -1,7 +1,8 @@
-#include <common.h>
+#include "common.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
+#include <math.h>
 
 /// @brief initialisizes a n_dim-dimensional array
 /// @param arr n_dim-dimensional array to be initialisized
@@ -36,5 +37,18 @@ double sstddev(double mean, double* values, size_t len) {
     double result=0;
     for(size_t i=0; i<len; result+=pow((*(values+i++)-mean), 2));
     return sqrt(result/(len-1)); // see definition of *sample* standard deviation 
-    
+}
+
+int main(void) {
+    int* arr;
+    size_t sizes = 10;
+    if (init_array((void**)arr, &sizes, 1)) {
+        fprintf(stderr, "Something went wrong.\n");
+        return EXIT_FAILURE;
+    }
+    for(size_t i=0; i<sizes; ++i) {
+        *(arr+i)=i;
+        printf("%d", *(arr+i));
+    }
+    return EXIT_SUCCESS;
 }

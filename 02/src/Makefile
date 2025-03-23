@@ -6,7 +6,7 @@ all: slow medium fast execall process_data
 
 .PHONY: clean
 clean:
-	$(RM) slow medium fast execall process_data
+	$(RM) slow medium fast execall process_data common.o
 
 slow: slow.c
 
@@ -16,4 +16,6 @@ fast: fast.c
 
 execall: execall.c
 
-process_data: process_data.c
+process_data: process_data.c common.o
+
+common.o: common.c common.h
