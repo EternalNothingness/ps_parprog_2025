@@ -1,10 +1,10 @@
 running with 6 Threads on cores 0,1,2,3,4,5
 Total sum: 600000000
-Time taken: 0.549456 seconds
+Time taken: 0.463410 seconds
 Total sum: 600000000
-Time taken: 0.397014 seconds
+Time taken: 0.205484 seconds
 running with 6 Threads on cores 0,1,2,6,7,8
 Total sum: 600000000
-Time taken: 0.657533 seconds
+Time taken: 0.389441 seconds
 Total sum: 600000000
-Time taken: 0.608963 seconds
+Time taken: 0.207512 seconds
