@@ -1,0 +1,38 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{multirow}
+\usepackage{minted}
+
+\subject{Sheet 03}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Mandelbrot}
+	The execution time of the program mandelbrot is measured.
+	\subsection{Source Code}
+	\inputminted{c}{mandelbrot/mandelbrot.c}
+	\subsection{Measurement Method}
+	The measurements were taken using the script mandelbrot/main.sh:
+	
+	\inputminted{bash}{mandelbrot/main.sh}
+	
+	The measurement results are stored in mandelbrot\_measurments.log, which is read by process\_results to compute the average execution time and standard deviation, which are stored in mandelbrot\_processed.log.
+	
+	\subsection{Measurement Results}
+	\begin{tabular}{|c|c|c|}
+		\hline time/s & mean/s & standard deviation/s\\
+		\hline 17.77 & \multirow{3}*{17.74} & \multirow{3}*{0.0265}\\
+		\cline{1-1} 17.72 & &\\
+		\cline{1-1} 17.73 & &\\
+		\hline
+	\end{tabular}
+	
+	\subsection{Suggestions for performance improvement and parallelisation}
+	The calculations of the colour of different pixels are independent, therefore those calculations could be done parallel.
+	
+	\section{False Sharing}
+\end{document}
