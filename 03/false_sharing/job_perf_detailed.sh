@@ -5,7 +5,7 @@
 # Name your job to be able to identify it later
 #SBATCH --job-name false_sharing_perf
 # Redirect output stream to this file
-#SBATCH --output=output_perf.log
+#SBATCH --output=output_perf_detailed.log
 # Maximum number of tasks (=processes) to start in total
 #SBATCH --ntasks=1
 # Maximum number of tasks (=processes) to start per node
@@ -14,4 +14,4 @@
 #SBATCH --exclusive
 
 module load gcc/12.2.0-gcc-8.5.0-p4pe45v
-./main_perf.sh
+./main_perf_detailed.sh

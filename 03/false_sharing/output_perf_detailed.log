@@ -1,0 +1,58 @@
+running with 6 Threads on cores 0,1,2,3,4,5
+Total sum: 600000000
+Time taken: 0.311290 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+               408      LLC-load-misses:u                                           
+               100      LLC-store-misses:u                                          
+
+       0.321106147 seconds time elapsed
+
+       1.787290000 seconds user
+       0.002992000 seconds sys
+
+
+Total sum: 600000000
+Time taken: 0.206201 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+               409      LLC-load-misses:u                                           
+                94      LLC-store-misses:u                                          
+
+       0.210323834 seconds time elapsed
+
+       1.236407000 seconds user
+       0.000000000 seconds sys
+
+
+running with 6 Threads on cores 0,1,2,6,7,8
+Total sum: 600000000
+Time taken: 0.398705 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+         1,160,871      LLC-load-misses:u                                           
+         1,460,061      LLC-store-misses:u                                          
+
+       0.402514828 seconds time elapsed
+
+       2.199481000 seconds user
+       0.002966000 seconds sys
+
+
+Total sum: 600000000
+Time taken: 0.205975 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+               270      LLC-load-misses:u                                           
+               107      LLC-store-misses:u                                          
+
+       0.209600113 seconds time elapsed
+
+       1.225613000 seconds user
+       0.008948000 seconds sys
+
+
