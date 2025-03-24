@@ -26,7 +26,7 @@ void calc_mandelbrot(uint8_t image[Y][X]) {
 				x=x_tmp;
 				iteration=iteration+1;
 			}
-			char norm_iteration=iteration*255/(MAX_ITER); // scale iteration to [0,255]
+			char norm_iteration=iteration*255/MAX_ITER; // scale iteration to [0,255]
 			image[i][j]=norm_iteration;
 		}
 	}
