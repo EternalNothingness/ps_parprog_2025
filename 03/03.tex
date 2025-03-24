@@ -16,7 +16,7 @@
 	\subsection{Source Code}
 	\inputminted{c}{mandelbrot/mandelbrot.c}
 	\subsection{Measurement Method}
-	The measurements were taken using the script mandelbrot/main.sh:
+	The measurements were taken using the script mandelbrot/main.sh (which is called in the slurm script):
 	
 	\inputminted{bash}{mandelbrot/main.sh}
 	
@@ -35,4 +35,102 @@
 	The calculations of the colour of different pixels are independent, therefore those calculations could be done parallel.
 	
 	\section{False Sharing}
+	\subsection{Differences and Implications}
+	Both versions allocate storage dynamically to a pointer called sum. Each thread is responsible for incrementing exactly one value of the allocated memory (therefore they should not influence each other), until it equals the value given as command line parameter. The final result is the sum of all elements.
+	
+	In the first version, there is no padding between the memory locations used by the threads for the computation. This means that it is likely that several memory locations used by different threads will be stored in the same cache line. If a thread writes to a memory location in a cache line, it invalidates also all other data stored in the same cache line. Therefore if another thread wants to increment another value stored in the same cache line, the previous thread has to write the cache line back into memory, causing significant delay (even though otherwise the threads were independent).
+	
+	In the second version, there is padding between the memory locations used for incrementing, hopefully preventing that memory locations of different threads are getting loaded into the same cache line.
+	
+	\subsection{Comparision same processor - different processors}
+	
+	\begin{tabular}{|c|c|c|}
+		\hline number of cpus & 1 & 2\\
+		\hline false\_sharing 1 & 0.311 & 0.390\\
+		\hline false\_sharing 2 & 0.206 & 0.206\\
+		\hline
+	\end{tabular}
+	
+	The second version is not affected by increasing the number of processors, while the first suffers an increase in execution time for the reasons stated above.
+	
+	\subsection{Perf Analysis}
+	\subsubsection{Overview}
+	\begin{verbatim}
+	running with 6 Threads on cores 0,1,2,6,7,8
+Total sum: 600000000
+Time taken: 0.401349 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+          2,220.34 msec task-clock:u        
+                 0      context-switches:u                   
+                 0      cpu-migrations:u                
+                80      page-faults:u              
+     6,451,931,844      cycles:u
+     5,263,553,697      stalled-cycles-frontend:u
+     1,479,760,818      stalled-cycles-backend:u
+     2,411,603,664      instructions:u           
+
+
+
+Total sum: 600000000
+Time taken: 0.207501 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+          1,245.48 msec task-clock:u               
+                 0      context-switches:u                    
+                 0      cpu-migrations:u                    
+                82      page-faults:u                
+     3,618,081,567      cycles:u                  
+     2,427,423,905      stalled-cycles-frontend:u 
+       686,292,218      stalled-cycles-backend:u 
+	\end{verbatim}
+	
+	The number of cycles of the first version is way higher.
+	\subsubsection{Details}
+	\begin{verbatim}
+	Performance counter stats for './false_sharing_2 100000000':
+
+               409      LLC-load-misses:u                                           
+                94      LLC-store-misses:u                                          
+
+       0.210323834 seconds time elapsed
+
+       1.236407000 seconds user
+       0.000000000 seconds sys
+
+
+running with 6 Threads on cores 0,1,2,6,7,8
+Total sum: 600000000
+Time taken: 0.398705 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+         1,160,871      LLC-load-misses:u                                           
+         1,460,061      LLC-store-misses:u                                          
+
+       0.402514828 seconds time elapsed
+
+       2.199481000 seconds user
+       0.002966000 seconds sys
+
+
+Total sum: 600000000
+Time taken: 0.205975 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+               270      LLC-load-misses:u                                           
+               107      LLC-store-misses:u                                          
+
+       0.209600113 seconds time elapsed
+
+       1.225613000 seconds user
+       0.008948000 seconds sys
+	\end{verbatim}
+	
+	The number of LLC-load-misses of the first version is by several magnitudes higher.
+	
+	(Sorry for ugly report, time is running out)
 \end{document}
