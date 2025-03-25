@@ -33,7 +33,9 @@ int main(int argc, char** argv) {
         perror("fopen");
         return EXIT_FAILURE;
     }
-
+    //TODO Rename file to toTex.c, print output to latex-file
+    // maybe make number of measurements to cmd parameter
+    // instead of evaluating all measurments at once, call this program several times in the bash script
     double avg_time=mean(time, NUMBER_OF_MEASUREMENTS);
     fprintf(output_file, "mean=%f, sstdev=%f\n",avg_time, sstddev(avg_time, time, NUMBER_OF_MEASUREMENTS));
     fclose(output_file);
