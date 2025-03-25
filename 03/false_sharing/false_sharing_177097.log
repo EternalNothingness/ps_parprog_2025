@@ -1,0 +1,14 @@
+rm -f false_sharing false_sharing_2
+/usr/site/hpc/spack/v0.19-lcc3-20230919/opt/spack/linux-rocky8-westmere/gcc-8.5.0/gcc-12.2.0-p4pe45vebc7w5leppo2eeesyakewpbxf/bin/gcc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3    false_sharing.c   -o false_sharing
+/usr/site/hpc/spack/v0.19-lcc3-20230919/opt/spack/linux-rocky8-westmere/gcc-8.5.0/gcc-12.2.0-p4pe45vebc7w5leppo2eeesyakewpbxf/bin/gcc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3    false_sharing_2.c   -o false_sharing_2
+running with 6 Threads on cores 0,1,2,3,4,5
+Total sum: 600000000
+Time taken: 0.314225 seconds
+Total sum: 600000000
+Time taken: 0.206935 seconds
+running with 6 Threads on cores 0,1,2,6,7,8
+Total sum: 600000000
+Time taken: 0.391940 seconds
+Total sum: 600000000
+Time taken: 0.207049 seconds
+rm -f false_sharing false_sharing_2

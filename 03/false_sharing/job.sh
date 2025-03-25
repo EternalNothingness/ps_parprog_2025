@@ -17,3 +17,4 @@ module load gcc/12.2.0-gcc-8.5.0-p4pe45v
 make clean
 make
 ./main.sh $*
+make clean

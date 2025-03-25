@@ -1,0 +1,62 @@
+rm -f false_sharing false_sharing_2
+/usr/site/hpc/spack/v0.19-lcc3-20230919/opt/spack/linux-rocky8-westmere/gcc-8.5.0/gcc-12.2.0-p4pe45vebc7w5leppo2eeesyakewpbxf/bin/gcc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3    false_sharing.c   -o false_sharing
+/usr/site/hpc/spack/v0.19-lcc3-20230919/opt/spack/linux-rocky8-westmere/gcc-8.5.0/gcc-12.2.0-p4pe45vebc7w5leppo2eeesyakewpbxf/bin/gcc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3    false_sharing_2.c   -o false_sharing_2
+running with 6 Threads on cores 0,1,2,3,4,5
+Total sum: 600000000
+Time taken: 0.311294 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+               507      LLC-load-misses:u                                           
+               163      LLC-store-misses:u                                          
+
+       0.318045312 seconds time elapsed
+
+       1.791884000 seconds user
+       0.000994000 seconds sys
+
+
+Total sum: 600000000
+Time taken: 0.206021 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+               146      LLC-load-misses:u                                           
+                58      LLC-store-misses:u                                          
+
+       0.212332630 seconds time elapsed
+
+       1.232476000 seconds user
+       0.002983000 seconds sys
+
+
+running with 6 Threads on cores 0,1,2,6,7,8
+Total sum: 600000000
+Time taken: 0.398260 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+         1,153,111      LLC-load-misses:u                                           
+         1,452,548      LLC-store-misses:u                                          
+
+       0.402423131 seconds time elapsed
+
+       2.198254000 seconds user
+       0.001989000 seconds sys
+
+
+Total sum: 600000000
+Time taken: 0.206344 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+               250      LLC-load-misses:u                                           
+                86      LLC-store-misses:u                                          
+
+       0.209930705 seconds time elapsed
+
+       1.235174000 seconds user
+       0.001980000 seconds sys
+
+
+rm -f false_sharing false_sharing_2
