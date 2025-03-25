@@ -1,72 +1,94 @@
 running with 6 Threads on cores 0,1,2,3,4,5
 Total sum: 600000000
-Time taken: 0.313124 seconds
+Time taken: 0.313262 seconds
 
  Performance counter stats for './false_sharing 100000000':
 
-          1,806.28 msec task-clock:u              #    5.577 CPUs utilized          
+          1,811.23 msec task-clock:u              #    5.261 CPUs utilized          
                  0      context-switches:u        #    0.000 /sec                   
                  0      cpu-migrations:u          #    0.000 /sec                   
-                81      page-faults:u             #   44.843 /sec                   
-     5,246,161,022      cycles:u                  #    2.904 GHz                      (83.38%)
-     4,060,127,018      stalled-cycles-frontend:u #   77.39% frontend cycles idle     (83.41%)
-       741,460,950      stalled-cycles-backend:u  #   14.13% backend cycles idle      (66.56%)
-     2,410,343,469      instructions:u            #    0.46  insn per cycle         
-                                                  #    1.68  stalled cycles per insn  (83.17%)
-       602,590,078      branches:u                #  333.608 M/sec                    (83.38%)
-             7,107      branch-misses:u           #    0.00% of all branches          (83.34%)
+                81      page-faults:u             #   44.721 /sec                   
+     5,259,723,782      cycles:u                  #    2.904 GHz                      (83.40%)
+     4,069,633,441      stalled-cycles-frontend:u #   77.37% frontend cycles idle     (83.48%)
+       734,654,908      stalled-cycles-backend:u  #   13.97% backend cycles idle      (66.47%)
+     2,415,086,423      instructions:u            #    0.46  insn per cycle         
+                                                  #    1.69  stalled cycles per insn  (83.21%)
+       604,548,894      branches:u                #  333.778 M/sec                    (83.27%)
+             8,776      branch-misses:u           #    0.00% of all branches          (83.38%)
 
-       0.323902086 seconds time elapsed
+       0.344288454 seconds time elapsed
 
-       1.788178000 seconds user
-       0.004914000 seconds sys
-
-
-perf: 'stat./false_sharing_2' is not a perf-command. See 'perf --help'.
-running with 6 Threads on cores 0,1,2,6,7,8
-Total sum: 600000000
-Time taken: 0.401349 seconds
-
- Performance counter stats for './false_sharing 100000000':
-
-          2,220.34 msec task-clock:u              #    5.476 CPUs utilized          
-                 0      context-switches:u        #    0.000 /sec                   
-                 0      cpu-migrations:u          #    0.000 /sec                   
-                80      page-faults:u             #   36.031 /sec                   
-     6,451,931,844      cycles:u                  #    2.906 GHz                      (83.41%)
-     5,263,553,697      stalled-cycles-frontend:u #   81.58% frontend cycles idle     (83.29%)
-     1,479,760,818      stalled-cycles-backend:u  #   22.94% backend cycles idle      (66.66%)
-     2,411,603,664      instructions:u            #    0.37  insn per cycle         
-                                                  #    2.18  stalled cycles per insn  (83.38%)
-       603,926,633      branches:u                #  271.997 M/sec                    (83.38%)
-             6,111      branch-misses:u           #    0.00% of all branches          (83.34%)
-
-       0.405488218 seconds time elapsed
-
-       2.203504000 seconds user
-       0.000000000 seconds sys
+       1.794326000 seconds user
+       0.003961000 seconds sys
 
 
 Total sum: 600000000
-Time taken: 0.207501 seconds
+Time taken: 0.206980 seconds
 
  Performance counter stats for './false_sharing_2 100000000':
 
-          1,245.48 msec task-clock:u              #    5.843 CPUs utilized          
+          1,242.21 msec task-clock:u              #    5.060 CPUs utilized          
                  0      context-switches:u        #    0.000 /sec                   
                  0      cpu-migrations:u          #    0.000 /sec                   
-                82      page-faults:u             #   65.838 /sec                   
-     3,618,081,567      cycles:u                  #    2.905 GHz                      (83.44%)
-     2,427,423,905      stalled-cycles-frontend:u #   67.09% frontend cycles idle     (83.14%)
-       686,292,218      stalled-cycles-backend:u  #   18.97% backend cycles idle      (66.29%)
-     2,405,550,419      instructions:u            #    0.66  insn per cycle         
-                                                  #    1.01  stalled cycles per insn  (83.14%)
-       601,650,025      branches:u                #  483.066 M/sec                    (83.60%)
-             6,835      branch-misses:u           #    0.00% of all branches          (83.55%)
+                80      page-faults:u             #   64.401 /sec                   
+     3,610,830,155      cycles:u                  #    2.907 GHz                      (83.35%)
+     2,420,144,887      stalled-cycles-frontend:u #   67.02% frontend cycles idle     (83.14%)
+       643,636,797      stalled-cycles-backend:u  #   17.83% backend cycles idle      (66.64%)
+     2,397,995,018      instructions:u            #    0.66  insn per cycle         
+                                                  #    1.01  stalled cycles per insn  (83.46%)
+       600,950,222      branches:u                #  483.775 M/sec                    (83.57%)
+             7,405      branch-misses:u           #    0.00% of all branches          (83.54%)
 
-       0.213147368 seconds time elapsed
+       0.245507907 seconds time elapsed
 
-       1.235576000 seconds user
-       0.000990000 seconds sys
+       1.228818000 seconds user
+       0.004997000 seconds sys
+
+
+running with 6 Threads on cores 0,1,2,6,7,8
+Total sum: 600000000
+Time taken: 0.401408 seconds
+
+ Performance counter stats for './false_sharing 100000000':
+
+          2,219.71 msec task-clock:u              #    5.471 CPUs utilized          
+                 0      context-switches:u        #    0.000 /sec                   
+                 0      cpu-migrations:u          #    0.000 /sec                   
+                81      page-faults:u             #   36.491 /sec                   
+     6,452,655,696      cycles:u                  #    2.907 GHz                      (83.35%)
+     5,258,986,168      stalled-cycles-frontend:u #   81.50% frontend cycles idle     (83.41%)
+     1,409,413,484      stalled-cycles-backend:u  #   21.84% backend cycles idle      (66.61%)
+     2,412,889,403      instructions:u            #    0.37  insn per cycle         
+                                                  #    2.18  stalled cycles per insn  (83.33%)
+       603,934,417      branches:u                #  272.079 M/sec                    (83.38%)
+             8,823      branch-misses:u           #    0.00% of all branches          (83.38%)
+
+       0.405696283 seconds time elapsed
+
+       2.199907000 seconds user
+       0.002975000 seconds sys
+
+
+Total sum: 600000000
+Time taken: 0.209185 seconds
+
+ Performance counter stats for './false_sharing_2 100000000':
+
+          1,252.86 msec task-clock:u              #    5.882 CPUs utilized          
+                 0      context-switches:u        #    0.000 /sec                   
+                 0      cpu-migrations:u          #    0.000 /sec                   
+                79      page-faults:u             #   63.055 /sec                   
+     3,640,263,122      cycles:u                  #    2.906 GHz                      (83.46%)
+     2,445,521,845      stalled-cycles-frontend:u #   67.18% frontend cycles idle     (83.25%)
+       649,261,780      stalled-cycles-backend:u  #   17.84% backend cycles idle      (66.48%)
+     2,409,698,051      instructions:u            #    0.66  insn per cycle         
+                                                  #    1.01  stalled cycles per insn  (83.24%)
+       602,302,065      branches:u                #  480.740 M/sec                    (83.39%)
+             6,745      branch-misses:u           #    0.00% of all branches          (83.64%)
+
+       0.212985979 seconds time elapsed
+
+       1.234100000 seconds user
+       0.009857000 seconds sys
 
 
