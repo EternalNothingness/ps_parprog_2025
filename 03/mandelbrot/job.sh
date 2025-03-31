@@ -13,4 +13,4 @@
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
 
-sbatch ./main.sh
+./main.sh
