@@ -1,14 +1,14 @@
-CFLAGS = -std=gnu11 -Wall -Wextra -lm
+CFLAGS = -std=gnu11 -Wall -Wextra -lm -lpthread
 
 .PHONY: all
-all: mandelbrot process_results
+all: mandelbrot toTex 
 
 .PHONY: clean
 clean:
-	$(RM) mandelbrot mandelbrot.png common.o process_results
+	$(RM) mandelbrot mandelbrot.png common.o toTex
 
 mandelbrot: mandelbrot.c
 
-process_results: process_results.c common.o
+toTex: toTex.c common.o
 
 common.o: common.c

@@ -1,3 +1,6 @@
+#include <pthread.h>
+#include <errno.h>
+#include <sys/wait.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,8 +15,16 @@
 #define Y 720
 #define MAX_ITER 10000
 
-void calc_mandelbrot(uint8_t image[Y][X]) {
-	for(size_t i=0; i<Y; ++i) {
+struct thread_info{
+	size_t start;
+	size_t end;
+	uint8_t (*image)[X];
+};
+
+
+void* calc_mandelbrot_partial(void* arg) {
+	struct thread_info* thread_info=arg;
+	for(size_t i=thread_info->start; i<thread_info->end; ++i) {
 		for(size_t j=0; j<X; ++j) {
 			double x=0;
 			double y=0;
@@ -25,17 +36,48 @@ void calc_mandelbrot(uint8_t image[Y][X]) {
 				y=2*x*y+cy;
 				x=x_tmp;
 				iteration=iteration+1;
-			}
+			}	
 			char norm_iteration=iteration*255/MAX_ITER; // scale iteration to [0,255]
-			image[i][j]=norm_iteration;
+			thread_info->image[i][j]=norm_iteration;
 		}
+	}
+	return NULL;
+}
+
+void calc_mandelbrot(uint8_t image[Y][X], size_t n_threads) {
+	size_t chunk_size=Y/n_threads;
+	size_t remaining=Y%n_threads;
+	pthread_t threads[n_threads];
+	struct thread_info args[n_threads];
+	for(size_t i=0; i<n_threads; ++i) {
+		args[i].start=i*chunk_size;
+		args[i].end=(i+1)*chunk_size+(i+1==n_threads ? remaining : 0);
+		args[i].image=image;
+		pthread_create(threads+i, NULL, calc_mandelbrot_partial, args+i);
+	}
+	for(size_t i=0; i<n_threads; ++i) {
+		pthread_join(threads[i], NULL);
 	}
 }
 
-int main() {
+int main(int argc, char** argv) {
+	if(argc!=2) {
+		fprintf(stderr, "Usage: %s <n_threads>\n", *argv);
+		return EXIT_FAILURE;
+	}
+
+	errno=0;
+	char* end;
+	long n_threads = strtol(*(argv+1), &end, 10);
+
+	if(errno || *end) {
+		perror("strtol");
+		return EXIT_FAILURE;
+	}
+
 	uint8_t image[Y][X];
 
-	calc_mandelbrot(image);
+	calc_mandelbrot(image, n_threads);
 
 	const int channel_nr = 1, stride_bytes = 0;
 	stbi_write_png("mandelbrot.png", X, Y, channel_nr, image, stride_bytes);
