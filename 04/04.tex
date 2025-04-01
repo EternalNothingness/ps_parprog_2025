@@ -1,0 +1,32 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{multirow}
+\usepackage{minted}
+
+\subject{Sheet 04}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Mandelbrot}
+	The execution time of the program mandelbrot is measured.
+	\subsection{Source Code}
+	\inputminted{c}{mandelbrot/mandelbrot.c}
+	\subsection{Measurement Method}
+	The measurement was done on the LCC3 cluster by calling sbatch job.sh. The following scripts are involved in the measurement process.
+	\subsubsection{SLURM Job Script}
+	\inputminted{bash}{mandelbrot/job.sh}
+	\subsubsection{Main Script}
+	\inputminted{bash}{mandelbrot/main.sh}
+	
+	The measurement results are stored in mandelbrot\_measurments.log, which is read by process\_results to compute the average execution time and standard deviation, which are stored in mandelbrot\_processed.log.
+	
+	\subsection{Measurement Results}
+	\begin{tabular}{|c|c|c|c|}
+		\hline \#threads & time/s & mean/s & standard deviation/s\\
+		\hline
+	\end{tabular}
+\end{document}
