@@ -12,5 +12,7 @@
 #SBATCH --ntasks-per-node=1
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
+# Enable hyperthreading
+#SBATCH --hint=multithread
 
 ./main.sh
