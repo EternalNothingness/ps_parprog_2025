@@ -4,11 +4,9 @@
 #include <string.h>
 #include <errno.h>
 
-#define NUMBER_OF_MEASUREMENTS 3
-
 int main(int argc, char** argv) {
-    if(argc!=3) {
-        fprintf(stderr, "Usage: ./process_data INPUTFILE OUTPUTFILE\n");
+    if(argc!=4) {
+        fprintf(stderr, "Usage: %s INPUTFILE OUTPUTFILE N_MEASUREMENTS\n", *argv);
         return EXIT_FAILURE;
     }
     
@@ -18,8 +16,14 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
 
-    double time[NUMBER_OF_MEASUREMENTS];
-    for(size_t i=0; i<NUMBER_OF_MEASUREMENTS; ++i) {
+    char* end;
+    long n_measurements=strtol(*(argv+3), &end, 10);
+    if(*end || errno) {
+        perror("strtol");
+        return EXIT_FAILURE;
+    }
+    double time[n_measurements];
+    for(long i=0; i<n_measurements; ++i) {
         fscanf(input_file, "%lf\n", time+i);
         if(errno) {
             perror("fscanf");
@@ -34,10 +38,9 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
     //TODO Rename file to toTex.c, print output to latex-file
-    // maybe make number of measurements to cmd parameter
     // instead of evaluating all measurments at once, call this program several times in the bash script
-    double avg_time=mean(time, NUMBER_OF_MEASUREMENTS);
-    fprintf(output_file, "mean=%f, sstdev=%f\n",avg_time, sstddev(avg_time, time, NUMBER_OF_MEASUREMENTS));
+    double avg_time=mean(time, n_measurements);
+    fprintf(output_file, "mean,\tsstdev\n%f,\t%f", avg_time, sstddev(avg_time, time, n_measurements));
     fclose(output_file);
     return EXIT_SUCCESS;
 }

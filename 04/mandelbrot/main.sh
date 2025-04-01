@@ -1,12 +1,15 @@
 #!/bin/bash
 # Usage: ./main.sh
-MEASUREMENT_RESULTS=mandelbrot_measurements.log
-PROCESSED_RESULTS=mandelbrot_processed.log
+MEASUREMENT_RESULTS=measurements
+PROCESSED_RESULTS=results
 make
-rm $MEASUREMENT_RESULTS $PROCESSED_RESULTS
 for i in {1,2,4,8,12} 
 do
-	/bin/time -f "%e" -a -o $MEASUREMENT_RESULTS ./mandelbrot $i
+	rm $i"_"$MEASUREMENT_RESULTS $i"_"$PROCESSED_RESULTS
+	for j in {1..3}
+	do
+		/bin/time -f "%e" -a -o $i\_$MEASUREMENT_RESULTS ./mandelbrot $i
+	done
+	./toTex $i\_$MEASUREMENT_RESULTS $i\_$PROCESSED_RESULTS 3
 done
-./toTex $MEASUREMENT_RESULTS $PROCESSED_RESULTS
 make clean
