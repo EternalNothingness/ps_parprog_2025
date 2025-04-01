@@ -51,7 +51,7 @@ void calc_mandelbrot(uint8_t image[Y][X], size_t n_threads) {
 	struct thread_info args[n_threads];
 	for(size_t i=0; i<n_threads; ++i) {
 		args[i].start=i*chunk_size;
-		args[i].end=(i+1)*chunk_size+(i+1==n_threads ? remaining : 0);
+		args[i].end=(i+1)*chunk_size+(i+1==n_threads ? remaining:0);
 		args[i].image=image;
 		pthread_create(threads+i, NULL, calc_mandelbrot_partial, args+i);
 	}

@@ -4,8 +4,9 @@ MEASUREMENT_RESULTS=mandelbrot_measurements.log
 PROCESSED_RESULTS=mandelbrot_processed.log
 make
 rm $MEASUREMENT_RESULTS $PROCESSED_RESULTS
-for ((i=0;i<=2;++i)); do
-	/bin/time -f "%e" -a -o $MEASUREMENT_RESULTS ./mandelbrot
+for i in {1,2,4,8,12} 
+do
+	/bin/time -f "%e" -a -o $MEASUREMENT_RESULTS ./mandelbrot $i
 done
-./process_results $MEASUREMENT_RESULTS $PROCESSED_RESULTS
+./toTex $MEASUREMENT_RESULTS $PROCESSED_RESULTS
 make clean
