@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYG{c+c1}{\PYGZsh{} Usage: ./main.sh}
+\PYG{n+nv}{MEASUREMENT\PYGZus{}RESULTS}\PYG{o}{=}mandelbrot\PYGZus{}measurements.log
+\PYG{n+nv}{PROCESSED\PYGZus{}RESULTS}\PYG{o}{=}mandelbrot\PYGZus{}processed.log
+make
+rm\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}MEASUREMENT\PYGZus{}RESULTS}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}PROCESSED\PYGZus{}RESULTS}
+\PYG{k}{for}\PYG{+w}{ }\PYG{o}{((}\PYG{n+nv}{i}\PYG{o}{=}\PYG{l+m}{0}\PYG{p}{;}i\PYGZlt{}\PYG{o}{=}\PYG{l+m}{2}\PYG{p}{;}++i\PYG{o}{))}\PYG{p}{;}\PYG{+w}{ }\PYG{k}{do}
+\PYG{+w}{	}/bin/time\PYG{+w}{ }\PYGZhy{}f\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}\PYGZpc{}e\PYGZdq{}}\PYG{+w}{ }\PYGZhy{}a\PYG{+w}{ }\PYGZhy{}o\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}MEASUREMENT\PYGZus{}RESULTS}\PYG{+w}{ }./mandelbrot
+\PYG{k}{done}
+./process\PYGZus{}results\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}MEASUREMENT\PYGZus{}RESULTS}\PYG{+w}{ }\PYG{n+nv}{\PYGZdl{}PROCESSED\PYGZus{}RESULTS}
+make\PYG{+w}{ }clean
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sbatch\PYG{+w}{ }./job.sh
+sbatch\PYG{+w}{ }./job.sh\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}perf stat\PYGZdq{}}
+sbatch\PYG{+w}{ }./job.sh\PYG{+w}{ }\PYG{l+s+s2}{\PYGZdq{}perf stat \PYGZhy{}e LLC\PYGZhy{}load\PYGZhy{}misses \PYGZhy{}e LLC\PYGZhy{}store\PYGZhy{}misses\PYGZdq{}}
+\end{Verbatim}
