@@ -1,0 +1,33 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{xcolor}
+
+\subject{Sheet 05}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Flush Directives}
+	The effect of missing flush directives is observed.
+	\subsection{Source Code}
+	\inputminted	[linenos]{c}{ex1/ex1.c}
+	
+	The program spawns two threads. Thread 0 does some  work (setting the value of the variable data) before setting a flag. Thread 1 should print the values of the flag and the variable after the other thread has finished his work.
+	
+	\subsection{Experiment Method}
+	The measurement was done on the LCC3 cluster by calling 
+	\begin{center}
+		\colorbox{lightgray}{salloc --exclusive --tasks-per-node=1 --cpus-per-task=1 srun --pty bash}.
+	\end{center} 
+	The following scripts are involved in the measurement process.
+	\subsubsection{Main Script}
+	\inputminted[linenos]{bash}{ex1/main.sh}
+	
+	\subsection{Experiment Results}
+	The program neither terminates nor prints any output.
+\end{document}
