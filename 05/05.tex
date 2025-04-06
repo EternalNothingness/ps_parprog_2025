@@ -12,22 +12,33 @@
 \begin{document}
 	\maketitle
 	
-	\section{Flush Directives}
-	The effect of missing flush directives is observed.
+	\section{Missing Flush Directives}
+	Effects of missing flush directives are observed.
 	\subsection{Source Code}
 	\inputminted	[linenos]{c}{ex1/ex1.c}
 	
 	The program spawns two threads. Thread 0 does some  work (setting the value of the variable data) before setting a flag. Thread 1 should print the values of the flag and the variable after the other thread has finished his work.
 	
 	\subsection{Experiment Method}
-	The measurement was done on the LCC3 cluster by calling 
+	The experiment was done on the LCC3 cluster by calling 
 	\begin{center}
 		\colorbox{lightgray}{salloc --exclusive --tasks-per-node=1 --cpus-per-task=1 srun --pty bash}.
 	\end{center} 
-	The following scripts are involved in the measurement process.
+	Followed by calling 
+	\begin{center}
+		\colorbox{lightgray}{./main.sh}
+	\end{center}		
+	manually. The following scripts are involved in the experiment.
 	\subsubsection{Main Script}
 	\inputminted[linenos]{bash}{ex1/main.sh}
 	
 	\subsection{Experiment Results}
-	The program neither terminates nor prints any output.
+	The program neither terminates nor prints any output. This is probable the case because thread 1 does not fetch the updated value of flag from shared memory.  and is thus not able to leave the loop.
+	
+	\subsection{Discussion}
+	The program does indeed require several flush directives, see the code below. Those are placed either after a variable (that is read in another thread) is written to or before a variable (that is written in another thread) is read. It does not require any atomic directives, because there is no variable to which is written in both threads.
+	
+	\inputminted[linenos]{bash}{ex1/ex1_improved.c}
+	
+	\section{Parallelising Code Snippets}
 \end{document}

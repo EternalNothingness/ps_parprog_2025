@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}omp.h\PYGZgt{}}
+\PYG{c+c1}{\PYGZsh{}include \PYGZlt{}stdio.h\PYGZgt{}}
+
+int\PYG{+w}{ }main\PYG{o}{()}\PYG{+w}{ }\PYG{o}{\PYGZob{}}
+
+\PYG{+w}{    }int\PYG{+w}{ }data\PYG{p}{;}
+\PYG{+w}{    }int\PYG{+w}{ }\PYG{n+nv}{flag}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{;}
+
+\PYG{+w}{    }\PYG{c+c1}{\PYGZsh{}pragma omp parallel num\PYGZus{}threads(2)}
+\PYG{+w}{    }\PYG{o}{\PYGZob{}}
+
+\PYG{+w}{      }\PYG{k}{if}\PYG{+w}{ }\PYG{o}{(}omp\PYGZus{}get\PYGZus{}thread\PYGZus{}num\PYG{o}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m}{0}\PYG{o}{)}\PYG{+w}{ }\PYG{o}{\PYGZob{}}
+
+\PYG{+w}{          }\PYG{n+nv}{data}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{42}\PYG{p}{;}
+\PYG{+w}{          }\PYG{c+c1}{\PYGZsh{}pragma omp flush(data)}
+
+\PYG{+w}{          }\PYG{n+nv}{flag}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{1}\PYG{p}{;}
+\PYG{+w}{          }\PYG{c+c1}{\PYGZsh{}pragma omp flush(flag)}
+
+\PYG{+w}{      }\PYG{o}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{o}{(}omp\PYGZus{}get\PYGZus{}thread\PYGZus{}num\PYG{o}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m}{1}\PYG{o}{)}\PYG{+w}{ }\PYG{o}{\PYGZob{}}
+\PYG{+w}{        }
+\PYG{+w}{          }int\PYG{+w}{ }\PYG{n+nv}{flag\PYGZus{}val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{;}
+
+\PYG{+w}{          }\PYG{k}{while}\PYG{+w}{ }\PYG{o}{(}flag\PYGZus{}val\PYG{+w}{ }\PYGZlt{}\PYG{+w}{ }\PYG{l+m}{1}\PYG{o}{)}\PYG{+w}{ }\PYG{o}{\PYGZob{}}
+\PYG{+w}{             }
+\PYG{+w}{             }\PYG{c+c1}{\PYGZsh{}pragma omp flush(flag)}
+\PYG{+w}{             }\PYG{n+nv}{flag\PYGZus{}val}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }flag\PYG{p}{;}
+
+\PYG{+w}{          }\PYG{o}{\PYGZcb{}}
+
+\PYG{+w}{          }\PYG{c+c1}{\PYGZsh{}pragma omp flush(data)}
+\PYG{+w}{          }printf\PYG{o}{(}\PYG{l+s+s2}{\PYGZdq{}flag=\PYGZpc{}d data=\PYGZpc{}d\PYGZbs{}n\PYGZdq{}},\PYG{+w}{ }flag,\PYG{+w}{ }data\PYG{o}{)}\PYG{p}{;}
+
+\PYG{+w}{      }\PYG{o}{\PYGZcb{}}
+
+\PYG{+w}{    }\PYG{o}{\PYGZcb{}}
+\PYG{+w}{    }
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m}{0}\PYG{p}{;}
+\PYG{o}{\PYGZcb{}}
+\end{Verbatim}

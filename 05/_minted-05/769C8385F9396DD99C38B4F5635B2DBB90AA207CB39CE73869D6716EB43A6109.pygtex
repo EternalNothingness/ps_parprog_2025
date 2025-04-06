@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+\PYG{c+c1}{\PYGZsh{} Usage: ./main.sh}
+make
+\PYG{k}{for}\PYG{+w}{ }i\PYG{+w}{ }\PYG{k}{in}\PYG{+w}{ }\PYG{o}{\PYGZob{}}\PYG{l+m}{0}..999\PYG{o}{\PYGZcb{}}\PYG{+w}{ }
+\PYG{k}{do}
+\PYG{+w}{	}./ex1
+\PYG{k}{done}
+make\PYG{+w}{ }clean
+\end{Verbatim}
