@@ -1,0 +1,96 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\subject{Sheet 05}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Missing Flush Directives}
+	Effects of missing flush directives are observed.
+	\subsection{Source Code}
+	\inputminted	[linenos]{c}{ex1/ex1.c}
+	
+	The program spawns two threads. Thread 0 does some  work (setting the value of the variable data) before setting a flag. Thread 1 should print the values of the flag and the variable after the other thread has finished his work.
+	
+	\subsection{Experiment Method}
+	The experiment was done on the LCC3 cluster by calling 
+	\begin{center}
+		\colorbox{lightgray}{salloc --exclusive --tasks-per-node=1 --cpus-per-task=1 srun --pty bash}.
+	\end{center} 
+	Followed by calling 
+	\begin{center}
+		\colorbox{lightgray}{./main.sh}
+	\end{center}		
+	manually. The following scripts are involved in the experiment.
+	\subsubsection{Main Script}
+	\inputminted[linenos]{bash}{ex1/main.sh}
+	
+	\subsection{Experiment Results}
+	The program neither terminates nor prints any output. This is probable the case because thread 1 does not fetch the updated value of flag from shared memory.  and is thus not able to leave the loop.
+	
+	\subsection{Discussion}
+	The program does indeed require several flush directives, see the code below. Those are placed either after a variable (that is read in another thread) is written to or before a variable (that is written in another thread) is read. It does not require any atomic directives, because there is no variable to which is written in both threads.
+	
+	\inputminted[linenos]{bash}{ex1/ex1_improved.c}
+	
+	\section{Parallelising Code Snippets}
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/01.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/01_fixed.c}
+	The ordered construct is necessary to guarantee that the instructions are executed strictly in order.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/02.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/02_fixed.c}
+	
+	If threads do not wait after the first loop, it is possible that some elements of b are set with values of some elements of a that are not yet initialisized.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/03.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/03_fixed.c}
+	
+	Setting default to none requires the programmer to specify the storage attribute for each variable explicitly.
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/04.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/04_fixed.c}
+	
+	The value of private variables is undefined on entry and exit of parallel regions.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/05.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/05_fixed.c}
+	
+	The reduction cause generates a local copy of sum and initialisizes it with 0. Updates occur on local copies (this would become a problem if sum were shared), which are afterwards combined to a single value.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/06.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/06_fixed.c}
+	
+	Avoids nesting of parallel regions. Only the loop variable of the parallel for loop is by default privat, therefore it is necessary to specify j as private. Another solution is to allow nesting of parallel regions by using the runtime routine omp\_set\_nested().
+\end{document}
