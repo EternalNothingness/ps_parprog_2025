@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}!/bin/bash}
+
+\PYG{c+c1}{\PYGZsh{} Execute job in the partition \PYGZdq{}lva\PYGZdq{} unless you have special requirements.}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}partition=lva}
+\PYG{c+c1}{\PYGZsh{} Name your job to be able to identify it later}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}job\PYGZhy{}name test}
+\PYG{c+c1}{\PYGZsh{} Redirect output stream to this file}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}output=output.log}
+\PYG{c+c1}{\PYGZsh{} Maximum number of tasks (=processes) to start in total}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}ntasks=1}
+\PYG{c+c1}{\PYGZsh{} Maximum number of tasks (=processes) to start per node}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}ntasks\PYGZhy{}per\PYGZhy{}node=1}
+\PYG{c+c1}{\PYGZsh{} Enforce exclusive node allocation, do not share with other jobs}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}exclusive}
+\PYG{c+c1}{\PYGZsh{} Enable hyperthreading}
+\PYG{c+c1}{\PYGZsh{}SBATCH \PYGZhy{}\PYGZhy{}hint=multithread}
+
+./main.sh
+\end{Verbatim}

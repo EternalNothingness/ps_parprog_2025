@@ -3,6 +3,7 @@
 \usepackage{multirow}
 \usepackage{minted}
 \usepackage{xcolor}
+\usepackage{enumitem}
 
 \subject{Sheet 05}
 \title{PS Parallel Programming}
@@ -41,4 +42,55 @@
 	\inputminted[linenos]{bash}{ex1/ex1_improved.c}
 	
 	\section{Parallelising Code Snippets}
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/01.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/01_fixed.c}
+	The ordered construct is necessary to guarantee that the instructions are executed strictly in order.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/02.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/02_fixed.c}
+	
+	If threads do not wait after the first loop, it is possible that some elements of b are set with values of some elements of a that are not yet initialisized.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/03.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/03_fixed.c}
+	
+	Setting default to none requires the programmer to specify the storage attribute for each variable explicitly.
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/04.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/04_fixed.c}
+	
+	The value of private variables is undefined on entry and exit of parallel regions.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/05.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/05_fixed.c}
+	
+	The reduction cause generates a local copy of sum and initialisizes it with 0. Updates occur on local copies (this would become a problem if sum were shared), which are afterwards combined to a single value.
+	
+	\subsection{}
+	\subsubsection{Original}
+	\inputminted{c}{ex2/06.c}
+	
+	\subsubsection{Fixed}
+	\inputminted{c}{ex2/06_fixed.c}
+	
+	Avoids nesting of parallel regions. Only the loop variable of the parallel for loop is by default privat, therefore it is necessary to specify j as private. Another solution is to allow nesting of parallel regions by using the runtime routine omp\_set\_nested().
 \end{document}

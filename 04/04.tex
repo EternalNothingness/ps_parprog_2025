@@ -3,7 +3,7 @@
 \usepackage{multirow}
 \usepackage{minted}
 
-\subject{Sheet 04}
+\subject{Sheet 04	}
 \title{PS Parallel Programming}
 \author{Patrick Wintner}
 \date{\today}
@@ -22,7 +22,7 @@
 	\subsubsection{Main Script}
 	\inputminted{bash}{mandelbrot/main.sh}
 	
-	The measurement results are stored in mandelbrot\_measurments.log, which is read by process\_results to compute the average execution time and standard deviation, which are stored in mandelbrot\_processed.log.
+	The measurement results are stored in n\_measurements, which is read by toTex to compute the average execution time and standard deviation, which are stored in n\_results. N is the number of threads used.
 	
 	\subsection{Measurement Results}
 	\begin{tabular}{|c|c|c|c|}

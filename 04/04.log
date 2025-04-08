@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2025.3.24)  1 APR 2025 12:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2025.3.24)  1 APR 2025 12:17
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -378,14 +378,14 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2])
-runsystem(pygmentize -l 'bash' -f latex -P commandprefix=PYG -F tokenmerge -P s
-tripnl='False' -o _minted-04/7461C2F42F95446CEEE9808629027905C605F9A410A2A5B745
-F594796F7E6622.pygtex mandelbrot/job.sh)...executed.
-
-
 (./_minted-04/7461C2F42F95446CEEE9808629027905C605F9A410A2A5B745F594796F7E6622.
 pygtex [3])
-(./_minted-04/A4F232190BE38CBC030B6B3CF6FC8D6F33AE04794B43487CF0170C2ADF7D6B1D.
+runsystem(pygmentize -l 'bash' -f latex -P commandprefix=PYG -F tokenmerge -P s
+tripnl='False' -o _minted-04/A141E8C2B2D0AA208198C62273E4203833AE04794B43487CF0
+170C2ADF7D6B1D.pygtex mandelbrot/main.sh)...executed.
+
+
+(./_minted-04/A141E8C2B2D0AA208198C62273E4203833AE04794B43487CF0170C2ADF7D6B1D.
 pygtex)
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 28.
@@ -393,8 +393,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 28.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 28.
-runsystem(rm _minted-04/3F13102D184E1B03A17EE8CD871C76E1C605F9A410A2A5B745F5947
-96F7E6622.pygtex)...executed.
+runsystem(rm _minted-04/A4F232190BE38CBC030B6B3CF6FC8D6F33AE04794B43487CF0170C2
+ADF7D6B1D.pygtex)...executed.
 
  [4] (./04.aux) ) 
 Here is how much of TeX's memory you used:
@@ -411,7 +411,7 @@ cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt1
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on 04.pdf (4 pages, 89663 bytes).
+Output written on 04.pdf (4 pages, 90050 bytes).
 PDF statistics:
  47 PDF objects out of 1000 (max. 8388607)
  28 compressed objects within 1 object stream

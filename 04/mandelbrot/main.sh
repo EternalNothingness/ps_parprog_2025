@@ -2,6 +2,7 @@
 # Usage: ./main.sh
 MEASUREMENT_RESULTS=measurements
 PROCESSED_RESULTS=results
+N_MEASUREMENTS #todo find out how to use shell variables in loop definition
 make
 for i in {1,2,4,8,12} 
 do
