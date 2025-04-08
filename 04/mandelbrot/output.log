@@ -1,0 +1,14 @@
+cc -std=gnu11 -Wall -Wextra -lm -lpthread    mandelbrot.c   -o mandelbrot
+cc -std=gnu11 -Wall -Wextra -lm -lpthread   -c -o common.o common.c
+cc -std=gnu11 -Wall -Wextra -lm -lpthread    toTex.c common.o   -o toTex
+rm: cannot remove '1_measurements': No such file or directory
+rm: cannot remove '1_results': No such file or directory
+rm: cannot remove '2_measurements': No such file or directory
+rm: cannot remove '2_results': No such file or directory
+rm: cannot remove '4_measurements': No such file or directory
+rm: cannot remove '4_results': No such file or directory
+rm: cannot remove '8_measurements': No such file or directory
+rm: cannot remove '8_results': No such file or directory
+rm: cannot remove '12_measurements': No such file or directory
+rm: cannot remove '12_results': No such file or directory
+rm -f mandelbrot mandelbrot.png common.o toTex
