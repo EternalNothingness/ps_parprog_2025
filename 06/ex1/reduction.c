@@ -12,7 +12,7 @@ int main() {
     startTime = omp_get_wtime();
     
     srand((unsigned) time(NULL));
-    #pragma omp parallel for reduction(+: count)
+    #pragma omp parallel for reduction(+: count) private(x,y)
     for (i = 0; i < n; i++) {
         x = (double) rand() / RAND_MAX;
         y = (double) rand() / RAND_MAX;
