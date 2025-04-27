@@ -22,9 +22,11 @@ int main() {
             x = (double) rand_r(&seed) / RAND_MAX;
             y = (double) rand_r(&seed) / RAND_MAX;
 
-            #pragma omp critical 
-            {
-                if (x * x + y * y <= 1) count++;
+            if (x * x + y * y <= 1){
+                #pragma omp critical 
+                {
+                    count++;
+                }
             }
         }
     }
