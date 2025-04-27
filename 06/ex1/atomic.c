@@ -27,7 +27,7 @@ int main() {
 
     pi = 4.0 * count / n;
     if(pi<3.14 || 3.15<pi) {
-        fprintf(stderr, "Error: estimated value deviates significantly: %f\n");
+        fprintf(stderr, "Error: estimated value deviates significantly: %f\n", pi);
         return 1;
     }
 	printf("%2.4f\n", endTime-startTime);
