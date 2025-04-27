@@ -1,5 +1,5 @@
 #!/bin/bash
-# Usage: ./main.sh <executable> <number_of_measurements>
+# Usage: ./benchmark.sh <executable> <number_of_measurements>
 
 results=$1".dat"
 echo "x y ey" > $results # create header

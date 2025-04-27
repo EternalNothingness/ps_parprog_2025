@@ -14,4 +14,4 @@
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
 
-./main.sh $1 $2
+./benchmark.sh $1 $2
