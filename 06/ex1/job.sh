@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: sbatch [slurm_options] job.sh <executable> <number_of_executions>
+# usage: sbatch [slurm_options] <executable> <number_of_executions>
 
 # Execute job in the partition "lva" unless you have special requirements.
 #SBATCH --partition=lva
@@ -13,8 +13,6 @@
 #SBATCH --ntasks-per-node=1
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
-# Enable hyperthreading
-#SBATCH --hint=multithread
 
 for i in $(seq 1 $2)
 do
