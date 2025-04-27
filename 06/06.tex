@@ -1,0 +1,48 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{pgfplots,filecontents}
+
+\subject{Sheet 06}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Approximation of Pi}
+	The execution times of different implementations of the Monte Carlo method are measured.
+	\subsection{Source Code}
+	\subsubsection{Serial Implementation}
+	\inputminted	[linenos]{c}{ex1/serial.c}
+	\subsubsection{Parallel Implementation using a Critical Section}
+	\inputminted	[linenos]{c}{ex1/critical.c}
+	\subsubsection{Parallel Implementation using an Atomic Statement}
+	\inputminted	[linenos]{c}{ex1/atomic.c}
+	\subsubsection{Parallel Implementation using a reduction clause}
+	\inputminted	[linenos]{c}{ex1/reduction.c}
+	\subsection{Measurement Method}
+	The measurement was done on the LCC3 cluster by calling \colorbox{lightgray}{./job.sh serial 3}, \colorbox{lightgray}{./job.sh critical 3}, \colorbox{lightgray}{./job.sh atomic 3} and \colorbox{lightgray}{./job.sh reduction 3}.
+	
+	The following scripts are involved in the experiment.
+	\subsubsection{SLURM Script}
+	\inputminted[linenos]{bash}{ex1/job.sh}
+	\subsubsection{Main Script}
+	\inputminted[linenos]{bash}{ex1/main.sh}
+	
+	\subsection{Experiment Results}
+	\begin{tikzpicture}
+		\begin{axis}[]
+			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex1/serial.dat};
+ 			\addplot [color=red, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex1/critical.dat};
+		\end{axis}
+	\end{tikzpicture}
+
+	\subsection{Discussion}
+\end{document}

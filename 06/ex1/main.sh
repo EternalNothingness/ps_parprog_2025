@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage: ./main.sh <executable> <number_of_measurements>
 
-results=$1".tex"
+results=$1".dat"
 echo "x y ey" > $results
 make
 for i in {1,4,8,12} 
@@ -12,7 +12,7 @@ do
 	do
 		./$1 >> $measurements
 	done
-	./toTex $measurements $results $2 $i
+	./toTable $measurements $results $2 $i
 	rm $measurements
 done
 make clean
