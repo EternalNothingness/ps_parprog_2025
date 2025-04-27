@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
     double time[n_measurements];
+    //TODO make this less error-prone
     for(long i=0; i<n_measurements; ++i) {
         fscanf(input_file, "%lf\n", time+i);
         if(errno) {

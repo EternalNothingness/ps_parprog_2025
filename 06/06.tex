@@ -21,7 +21,7 @@
 	\inputminted	[linenos]{c}{ex1/critical.c}
 	\subsubsection{Parallel Implementation using an Atomic Statement}
 	\inputminted	[linenos]{c}{ex1/atomic.c}
-	\subsubsection{Parallel Implementation using a reduction clause}
+	\subsubsection{Parallel Implementation using a Reduction Clause}
 	\inputminted	[linenos]{c}{ex1/reduction.c}
 	\subsection{Measurement Method}
 	The measurement was done on the LCC3 cluster by calling \colorbox{lightgray}{./job.sh serial 3}, \colorbox{lightgray}{./job.sh critical 3}, \colorbox{lightgray}{./job.sh atomic 3} and \colorbox{lightgray}{./job.sh reduction 3}.
@@ -41,6 +41,13 @@
  			\addplot [color=red, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
  			table[x =x, y =y, y error =ey]{ex1/critical.dat};
+ 			\addplot [color=orange, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex1/atomic.dat};
+ 			\addplot [color=green, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex1/reduction.dat};
+ 			\legend{serial,critical,atomic,reduction}
 		\end{axis}
 	\end{tikzpicture}
 
