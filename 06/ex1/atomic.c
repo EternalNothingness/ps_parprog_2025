@@ -26,8 +26,10 @@ int main() {
     endTime = omp_get_wtime();
 
     pi = 4.0 * count / n;
-    printf("Approximate value of pi: %f\n", pi);
-	printf("time: %2.4f seconds\n", endTime-startTime);
-    
+    if(pi<3.14 || 3.15<pi) {
+        fprintf(stderr, "Error: estimated value deviates significantly: %f\n");
+        return 1;
+    }
+	printf("%2.4f\n", endTime-startTime);
     return 0;
 }
