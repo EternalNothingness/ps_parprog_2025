@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: sbatch [slurm_options] <executable> <number_of_executions>
+# usage: sbatch [slurm_options] <executable> <number_of_measurements>
 
 # Execute job in the partition "lva" unless you have special requirements.
 #SBATCH --partition=lva
@@ -14,7 +14,4 @@
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
 
-for i in $(seq 1 $2)
-do
-	./$1
-done
+./main.sh $1 $2

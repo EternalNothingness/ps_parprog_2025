@@ -1,7 +1,5 @@
 #!/bin/bash
-# Usage: ./main.sh <executable>
-
-N_SAMPLES=3
+# Usage: ./main.sh <executable> <number_of_measurements>
 
 make
 for i in {1,4,8,12} 
@@ -9,13 +7,12 @@ do
 	measurements=$i"_"$1".log"
 	results=$i"_"$1".tex"
 	export OMP_NUM_THREADS=$i
-	sbatch --output=$measurements job.sh $1 $N_SAMPLES
-	until [ -f $measurements ] # wait until file exists
+	for i in $(seq 1 $2)
 	do
-		sleep 1
+		./$1 >> $measurements
 	done
 	rm $results
-	./toTex $measurements $results $N_SAMPLES
-	#rm $measurements
+	./toTex $measurements $results $2
+	rm $measurements
 done
 make clean
