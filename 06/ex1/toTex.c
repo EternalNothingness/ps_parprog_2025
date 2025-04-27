@@ -5,8 +5,8 @@
 #include <errno.h>
 
 int main(int argc, char** argv) {
-    if(argc!=4) {
-        fprintf(stderr, "Usage: %s INPUTFILE OUTPUTFILE N_MEASUREMENTS\n", *argv);
+    if(argc!=5) {
+        fprintf(stderr, "Usage: %s <input_file> <output_file> <n_measurements> <x_value>\n", *argv);
         return EXIT_FAILURE;
     }
     
@@ -37,10 +37,9 @@ int main(int argc, char** argv) {
         perror("fopen");
         return EXIT_FAILURE;
     }
-    //TODO Rename file to toTex.c, print output to latex-file
-    // instead of evaluating all measurments at once, call this program several times in the bash script
     double avg_time=mean(time, n_measurements);
-    fprintf(output_file, "mean,\tsstdev\n%f,\t%f", avg_time, sstddev(avg_time, time, n_measurements));
+    //fprintf(output_file, "mean,\tsstdev\n%f,\t%f", avg_time, sstddev(avg_time, time, n_measurements));
+    fprintf(output_file, "%s %f %f\n", *(argv+4), avg_time, sstddev(avg_time, time, n_measurements));
     fclose(output_file);
     return EXIT_SUCCESS;
 }

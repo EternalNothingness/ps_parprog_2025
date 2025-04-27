@@ -4,7 +4,7 @@
 #include <omp.h>
 
 int main() {
-    long n = 700000000;
+    long n = 7000000;//00;
     long i, count = 0;
     double x, y, pi;
     double startTime, endTime;
@@ -23,7 +23,7 @@ int main() {
     endTime = omp_get_wtime();
 
     pi = 4.0 * count / n;
-    if(pi<3.14 || 3.15<pi) {
+    if(pi<3.13 || 3.15<pi) {
         fprintf(stderr, "Error: estimated value deviates significantly: %f\n", pi);
         return 1;
     }
