@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <omp.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 int main() {
-    long n = 7000000;//00;
+    long n = 700000000;
     long i, count = 0;
     double x, y, pi;
     double startTime, endTime;
@@ -23,7 +25,7 @@ int main() {
     endTime = omp_get_wtime();
 
     pi = 4.0 * count / n;
-    if(pi<3.13 || 3.15<pi) {
+    if(pi<0.99*M_PI|| 1.01*M_PI<pi) {
         fprintf(stderr, "Error: estimated value deviates significantly: %f\n", pi);
         return 1;
     }

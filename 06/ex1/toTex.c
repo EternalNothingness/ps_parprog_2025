@@ -38,7 +38,6 @@ int main(int argc, char** argv) {
         return EXIT_FAILURE;
     }
     double avg_time=mean(time, n_measurements);
-    //fprintf(output_file, "mean,\tsstdev\n%f,\t%f", avg_time, sstddev(avg_time, time, n_measurements));
     fprintf(output_file, "%s %f %f\n", *(argv+4), avg_time, sstddev(avg_time, time, n_measurements));
     fclose(output_file);
     return EXIT_SUCCESS;
