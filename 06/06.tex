@@ -123,8 +123,8 @@
         		xticklabels={static, dynamic, guided, auto, runtime},
         		x tick label style={font=\normalsize, rotate=45, anchor=east}
         	]
-        		\addplot table [x index=0,y index=1, col sep=comma] {ex3/mandelbrot_scheduling.dat};
-        		\addplot table [x index=0,y index=1, col sep=comma] {ex3/hadamard_scheduling.dat};
+        		\addplot table [x index=1,y index=2] {ex3/mandelbrot_scheduling.dat};
+        		\addplot table [x index=1,y index=2] {ex3/hadamard_scheduling.dat};
         		\legend{mandelbrot, hadamard}
       	\end{axis}
 	\end{tikzpicture}
