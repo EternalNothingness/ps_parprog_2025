@@ -12,7 +12,7 @@
 \begin{document}
 	\maketitle
 	
-	\section{Approximation of Pi}
+	\section{Monte Carlo}
 	\label{ex1}
 	The execution times of different implementations of the Monte Carlo method are measured.
 	\subsection{Source Code}
@@ -53,7 +53,7 @@
 	\end{tikzpicture}
 
 	\subsection{Discussion}
-	Unsurpisingly, there is no performance impact when using different numbers of threads for the serial implementation. The performance of the parallel implementation with an atomic statement is roughly equal to the performance of the parallel implementation and slightly detoriates with an increasing number of threads. Considering that only  the variable assignments to x and y (calling rand\_r) runs in parallel, while incrementing the counter is done serial, this is not really surprising. The performance of the parallel implementation with a critical section detoriates siginficantly when increasing the number of threads. Only the implementation using a reduction clause gains performance by increasing the number of threads. This mets the expections, because each thread has its own count, thus not slowing each other when incrementing the counter.
+	Unsurpisingly, there is no performance impact when using different numbers of threads for the serial implementation. The performance of the parallel implementation with an atomic statement is roughly equal to the performance of the parallel implementation and slightly detoriates with an increasing number of threads. Considering that only  the variable assignments to x and y (calling rand\_r) runs in parallel, while incrementing the counter is done serial, this is not really surprising. The performance of the parallel implementation with a critical section detoriates siginficantly when increasing the number of threads. Only the implementation using a reduction clause gains performance by increasing the number of threads. This meets the expections, because each thread has its own count, thus not slowing each other when incrementing the counter.
 	
 	\section{Mandelbrot}
 	
@@ -73,9 +73,16 @@
 			\addplot [color=blue, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
  			table[x =x, y =y, y error =ey]{ex2/mandelbrot.dat};
+ 			\legend{mandelbrot}
 		\end{axis}
 	\end{tikzpicture}
 	
 	\subsection{Discussion}
-	The execution time drops significantly when the number of threads is increased. Considering that threads are completely independent here, this mets the expections.
+	The execution time drops significantly when the number of threads is increased. Considering that threads are completely independent here, this behaviour is expected.
+	
+	\section{Loop Scheduling Methods}
+	The impact of using different scheduling methods on openOMP implementations of the Hadamard product and the Mandelbrot set and the impact of increasing the size of the matrix on the execution time of the Hadamard product are observed.
+	
+	\subsection{Source Code}
+	\inputminted	[linenos]{c}{ex3/hadamard.c}
 \end{document}
