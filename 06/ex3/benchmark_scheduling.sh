@@ -2,7 +2,7 @@
 # Usage: ./benchmark_scheduling.sh <executable> <number_of_measurements>
 
 export OMP_NUM_THREADS=4
-dim=10
+dim=10000
 results=$1"_scheduling.dat"
 echo "x y ey" > $results # create header
 for i in {"static","dynamic","guided","auto","runtime"} # loop scheduling method
