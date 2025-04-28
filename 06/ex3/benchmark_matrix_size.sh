@@ -1,14 +1,13 @@
 #!/bin/bash
-# Usage: ./benchmark_threads.sh <executable> <number_of_measurements>
+# Usage: ./benchmark_matrix_size.sh <executable> <number_of_measurements>
 
 make OPT="static"
-OMP_NUM_THREADS=12
-results=$1"_threads.dat"
+export OMP_NUM_THREADS=12
+results=$1"_matrix_size.dat"
 echo "x y ey" > $results # create header
 for i in {10000,20000,30000} # size of matrix
 do
 	measurements=$i"_"$1".log" 
-	export OMP_NUM_THREADS=$i
 	for j in $(seq 1 $2) # repeat measurement $2 times
 	do
 		./$1 $i >> $measurements # store measurement results in <executable>.log
