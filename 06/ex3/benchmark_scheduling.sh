@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage: ./benchmark_scheduling.sh <executable> <number_of_measurements>
 
-export OMP_NUM_THREADS=4
+export OMP_NUM_THREADS=12
 dim=10000
 results=$1"_scheduling.dat"
 echo "x y ey" > $results # create header

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage: ./benchmark_threads.sh <executable> <number_of_measurements>
 
-make OPT="dynamic"
+make OPT="static"
 dim=10000
 results=$1"_threads.dat"
 echo "x y ey" > $results # create header

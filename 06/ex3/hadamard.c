@@ -62,20 +62,17 @@ int main(int argc, char** argv) {
     if(!a) {
         return EXIT_FAILURE;
     } 
-    //fprintf(stderr, "Initialisized matrix a.\n");
     b=matrix_init(n);
     if(!b) {
         matrix_free(n, a);
         return EXIT_FAILURE;
     }
-    //fprintf(stderr, "Initialisized matrix b.\n");
     c=matrix_init(n);
     if(!c) {
         matrix_free(n, a);
         matrix_free(n, b);
         return EXIT_FAILURE;
     }
-    //fprintf(stderr, "Initialisized matrix c.\n");
     double startTime = omp_get_wtime();
     hadamard(n, a, b, c);
 	double endTime = omp_get_wtime();
