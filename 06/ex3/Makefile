@@ -1,13 +1,16 @@
-CFLAGS = -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm
+OPT = auto
+CFLAGS = -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D SCHEDULING=$(OPT)
 
 .PHONY: all
-all: hadamard toTable
+all: hadamard mandelbrot toTable
 
 .PHONY: clean
 clean:
-	$(RM) hadamard toTable *.o
+	$(RM) hadamard mandelbrot toTable *.o
 
 hadamard: hadamard.c
+
+mandelbrot: mandelbrot.c
 
 toTable: toTable.c common.o
 
