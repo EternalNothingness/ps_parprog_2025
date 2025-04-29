@@ -83,6 +83,76 @@
 	\section{Loop Scheduling Methods}
 	The impact of using different scheduling methods on openOMP implementations of the Hadamard product and the Mandelbrot set and the impact of increasing the size of the matrix on the execution time of the Hadamard product are observed.
 	
+	\subsection{Examples of Loop Scheduling Methods}
+	\subsubsection{static}
+	Divides the loop into equal-sized chunks.
+	\subsubsection{dynamic}
+	The iterations are broken into chunks of the specified size. When a thread finishes the execution of a chunk, the next chunk is assigned to that thread.
+	\subsubsection{guided}
+	Similar to dynamic, but decreases chunk sizes over time to reduce overhead during runtime.
+	\subsubsection{runtime}
+	The scheduling type and the chunk size is taken from  the OMP\_SCHEDULE environment variable.
+	\subsubsection{auto}
+	The scheduling type is left up the system.
+	
 	\subsection{Source Code}
 	\inputminted	[linenos]{c}{ex3/hadamard.c}
+	\inputminted	[linenos]{c}{ex3/mandelbrot.c}
+	
+	\subsection{Measurement Method}
+	The measurement was done on the LCC3 cluster by calling \colorbox{lightgray}{sbatch job.sh benchmark\_scheduling mandelbrot 3}, \colorbox{lightgray}{sbatch job.sh benchmark\_scheduling hadamard 3}, \colorbox{lightgray}{sbatch job.sh benchmark\_threads hadamard 3} and \colorbox{lightgray}{sbatch job.sh benchmark\_matrix\_size hadamard 3}.
+	
+	The following scripts are involved in the experiment.
+	\subsubsection{SLURM Script}
+	\inputminted[linenos]{bash}{ex3/job.sh}
+	\subsubsection{Benchmark Scripts}
+	\inputminted[linenos]{bash}{ex3/benchmark_scheduling.sh}
+	\inputminted[linenos]{bash}{ex3/benchmark_threads.sh}
+	\inputminted[linenos]{bash}{ex3/benchmark_matrix_size.sh}
+	
+	\subsection{Experiment Results}
+	\subsection{Scheduling Method}
+	The number of threads is set to 12, the size of the matrix is $10.000^2$
+	
+	\begin{tikzpicture}
+		\begin{axis}[
+        		ybar,
+        		xtick=data,
+        		ymajorgrids=true,
+        		xtick align=inside,
+        		xticklabels={static, dynamic, guided, auto, runtime},
+        		x tick label style={font=\normalsize, rotate=45, anchor=east}
+        	]
+        		\addplot table [x index=1,y index=2] {ex3/mandelbrot_scheduling.dat};
+        		\addplot table [x index=1,y index=2] {ex3/hadamard_scheduling.dat};
+        		\legend{mandelbrot, hadamard}
+      	\end{axis}
+	\end{tikzpicture}
+	
+	The scheduling method has no impact on the hadamard product. The performance of the implementation of the mandelbrot set is improved by dynamic and similar scheduling methods.
+	\subsection{Number of Threads}
+	The used scheduling method is static, the size of the matrix is set to $10.000^2$.
+	
+	\begin{tikzpicture}
+		\begin{axis}[]
+			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex3/hadamard_threads.dat};
+		\end{axis}
+	\end{tikzpicture}
+	
+	The best performance can be achieved  by setting the number of threads to four.
+	
+	\subsection{Size of Matrix}
+	The used scheduling method is static, the number of threads is set to 12.
+	
+	\begin{tikzpicture}
+		\begin{axis}[]
+			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex3/hadamard_matrix_size.dat};
+		\end{axis}
+	\end{tikzpicture}
+	
+	The execution time increases linearily wwith the length of the matrix.
 \end{document}
