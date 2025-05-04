@@ -1,0 +1,47 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{multirow}
+\usepackage{minted}
+\usepackage{pgfplots,filecontents}
+
+\subject{Sheet 07}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Parallelisizing Loops}
+	The dependencies and parallelisation posibilities of code snippets are analysized.
+	\subsection{}
+	\subsubsection{Serial}
+	\inputminted	[linenos]{c}{ex1/a_ser.c}
+	
+	Statement S anti-depends (Write-After-Read) on itself: $S\delta^{-1} S$. Anti-dependencies can be eliminated through variable renaming.
+	\subsubsection{Parallel}
+	\inputminted	[linenos]{c}{ex1/a_par.c}
+	\subsection{}
+	\subsubsection{Serial}
+	\inputminted	[linenos]{c}{ex1/b_ser.c}
+	
+	Statement S2 truly depends (Read-After-Write) on S1 and S3 truly depends on the last instance of S1: $S1\delta S2, S2\delta S3$. The depency is obviously not loop-carried, therefore the loop can be parallelized by making 'a' private within the loop.
+	\subsubsection{Parallel}
+	\inputminted	[linenos]{c}{ex1/b_par.c}
+	\subsection{}
+	\subsubsection{Serial}
+	\inputminted	[linenos]{c}{ex1/c_ser.c}
+	
+	Statement S2 both truly and anti-depends on S1: $S1\delta S2, S1\delta^{-1} S2$. There is no dependence within the loops, therefore the loops themselves can be parallelized.
+	\subsubsection{Parallel}
+	\inputminted	[linenos]{c}{ex1/c_par.c}
+	
+	\section{Parallelisizing more Loops}
+	The dependencies of code snippets are analysized and the code snippets themselves are parallelized. The wall time of both the serial and parallel versions is measured.
+	
+	\subsection{}
+	\subsubsection{Serial}
+	\inputminted	[linenos]{c}{ex2/a_ser.h}
+	\subsubsection{Parallel}
+	\inputminted	[linenos]{c}{ex2/a_par.h}
+\end{document}
