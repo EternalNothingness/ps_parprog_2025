@@ -7,9 +7,14 @@ all: toTable a_ser a_par b_ser b_par c_ser c_par
 clean:
 	$(RM) toTable *.o a_ser a_par b_ser b_par c_ser c_par
 
-toTable: toTable.c common.o
+toTable: toTable.o common.o
+	$(CC) $(CFLAGS) $^ -o $@
 
-common.o: common.c
+toTable.o: toTable.c common.h
+	$(CC) -c $(CFLAGS) $<
+
+common.o: common.c common.h
+	$(CC) -c $(CFLAGS) $<
 
 a_ser: main.c 
 
@@ -23,3 +28,5 @@ c_ser: main.c
 
 c_par: main.c
 
+%: main.c
+	$(CC) $(CFLAGS) $^ -o $@
