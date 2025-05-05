@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2025.4.3)  5 MAY 2025 13:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2025.4.3)  5 MAY 2025 13:44
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -845,7 +845,7 @@ pygtex)
 pygtex)
 (./_minted-07/AD702948D695D1E2E61BB6A8B9BD2CE91B9F215C03144AD07605249BE53BF3D9.
 pygtex [7])
-(./_minted-07/AD702948D695D1E2E61BB6A8B9BD2CE9B57FB36E50587DAB2EBAA620571D6D28.
+(./_minted-07/8D1B1B6C81EB43EA2C470B2B9F060CD4B57FB36E50587DAB2EBAA620571D6D28.
 pygtex [8]) [9] (./07.aux) ) 
 Here is how much of TeX's memory you used:
  29225 strings out of 477955
@@ -867,7 +867,7 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
 s/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmtt10.pfb>
-Output written on 07.pdf (9 pages, 153161 bytes).
+Output written on 07.pdf (9 pages, 153669 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  61 compressed objects within 1 object stream
