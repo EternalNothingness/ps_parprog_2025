@@ -58,7 +58,7 @@
 	It is used that the different instances of statement S2 do not depend on each other and that there exist a recurrence formula  to determine 'factor'.
 	\subsubsection{Experiment Results}
 	\begin{tikzpicture}
-		\begin{axis}
+		\begin{axis}[xlabel={number of threads}, ylabel={t/s}]
 			\addplot [color=blue, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
  			table[x =x, y =y, y error =ey]{ex2/a_ser.dat};
@@ -68,6 +68,8 @@
  			\legend{serial,parallel}
 		\end{axis}
 	\end{tikzpicture}
+	
+	The walltime of the serial implementation is not affected by the number of threads, while the walltime of the parallel implementation decreases exponentially. Therefore both implementations behave as expected.
 	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/b_ser.h}
@@ -77,7 +79,7 @@
 	\inputminted	[linenos]{c}{ex2/b_par.h}
 	\subsubsection{Experiment Results}
 	\begin{tikzpicture}
-		\begin{axis}
+		\begin{axis}[xlabel={number of threads}, ylabel={t/s}]
 			\addplot [color=blue, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
  			table[x =x, y =y, y error =ey]{ex2/b_ser.dat};
@@ -87,6 +89,8 @@
  			\legend{serial,parallel}
 		\end{axis}
 	\end{tikzpicture}
+	
+	The walltime of the serial implementation is barely affected by the number of threads (as expected), while the walltime of the parallel implementation is minimal when the number of threads is four (and not twelve), which is surprising.
 	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/c_ser.h}
@@ -96,7 +100,7 @@
 	\inputminted	[linenos]{c}{ex2/c_par.h}
 	\subsubsection{Experiment Results}
 	\begin{tikzpicture}
-		\begin{axis}
+		\begin{axis}[xlabel={number of threads}, ylabel={t/s}]
 			\addplot [color=blue, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
  			table[x =x, y =y, y error =ey]{ex2/c_ser.dat};
@@ -106,6 +110,8 @@
  			\legend{serial,parallel}
 		\end{axis}
 	\end{tikzpicture}
+	
+	The walltime of the serial implementation is not affected by the number of threads (as expected), while the walltime of the parallel implementation is minimal when the number of threads is four (and not twelve), which is surprising.
 	
 	\section{... And One More Loop to Parallelize}
 	\subsection{Serial}
