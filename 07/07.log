@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2025.4.3)  5 MAY 2025 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Fedora 40) (preloaded format=pdflatex 2025.4.3)  5 MAY 2025 15:00
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -830,47 +830,53 @@ pygtex [3])
 pygtex)
 (./_minted-07/23B6412C2B10519BE34FACBA492516B7CFD2F4422E47123AE97892A3E921C379.
 pygtex [4])
-(./_minted-07/FDE6F1C634A34B9846756E02B089BB14FB67B6CCE5D8DA0F52B20A1420EB3990.
-pygtex [5])
+(./_minted-07/5AA31B2154DD95C890EAE49BC30C864DFB67B6CCE5D8DA0F52B20A1420EB3990.
+pygtex)
 PGFPlots: reading {ex2/a_ser.dat}
 PGFPlots: reading {ex2/a_par.dat}
-
-(./_minted-07/15027D487D69A162144B4ADD2081BFF61928023E4608214A12A6E2F61FDDABC3.
+ [5]
+(./_minted-07/5A43A64F45A97ED53C095D5E1C8407F31928023E4608214A12A6E2F61FDDABC3.
 pygtex)
-(./_minted-07/E1178B285EFE7AEFC93F064D82D113C7B428F76E0626B78194B46DA34352325A.
+(./_minted-07/FC0F9EDDD2E91E39531B268AB6BE1512B428F76E0626B78194B46DA34352325A.
 pygtex [6])
-(./_minted-07/33E13ED6A04CCB8825F14B8F5A8B1F6A857A73A4C114C59B7DFEA05AEAF566A4.
-pygtex)
-(./_minted-07/C02BE4884F72F3BFE1BF6533CBAE8AAA2C78C63FA9C9F9C66B245371AF743CCB.
-pygtex)
-(./_minted-07/AD702948D695D1E2E61BB6A8B9BD2CE91B9F215C03144AD07605249BE53BF3D9.
+PGFPlots: reading {ex2/b_ser.dat}
+PGFPlots: reading {ex2/b_par.dat}
+
+(./_minted-07/094847BC0C6D42944FA0A6E132784CB0857A73A4C114C59B7DFEA05AEAF566A4.
 pygtex [7])
+(./_minted-07/6AA1DD2AD1C6DB155A7ED31D421E45C12C78C63FA9C9F9C66B245371AF743CCB.
+pygtex)
+PGFPlots: reading {ex2/c_ser.dat}
+PGFPlots: reading {ex2/c_par.dat}
+ [8]
+(./_minted-07/AD702948D695D1E2E61BB6A8B9BD2CE91B9F215C03144AD07605249BE53BF3D9.
+pygtex) [9]
 (./_minted-07/8D1B1B6C81EB43EA2C470B2B9F060CD4B57FB36E50587DAB2EBAA620571D6D28.
-pygtex [8]) [9] (./07.aux) ) 
+pygtex [10]) [11] (./07.aux) ) 
 Here is how much of TeX's memory you used:
- 29225 strings out of 477955
- 761644 string characters out of 5837931
- 1870388 words of memory out of 6000000
- 48934 multiletter control sequences out of 15000+600000
+ 29261 strings out of 477955
+ 762236 string characters out of 5837931
+ 1873388 words of memory out of 6000000
+ 48962 multiletter control sequences out of 15000+600000
  518371 words of font info for 53 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 108i,17n,106p,10597b,2428s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt10.pfb>
-Output written on 07.pdf (9 pages, 153669 bytes).
+ 108i,17n,106p,10597b,2429s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmitt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmtt10.pfb>
+Output written on 07.pdf (11 pages, 159906 bytes).
 PDF statistics:
- 97 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 103 PDF objects out of 1000 (max. 8388607)
+ 65 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

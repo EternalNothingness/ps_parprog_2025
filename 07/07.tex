@@ -55,7 +55,7 @@
 	\subsubsection{Parallel}
 	\inputminted	[linenos]{c}{ex2/a_par.h}
 	
-	It is used that the different instances of statement S2 do not depend on each other.
+	It is used that the different instances of statement S2 do not depend on each other and that there exist a recurrence formula  to determine 'factor'.
 	\subsubsection{Experiment Results}
 	\begin{tikzpicture}
 		\begin{axis}
@@ -71,15 +71,41 @@
 	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/b_ser.h}
+	
+	Statement S1 truly depends on S2: $S2\delta S1$. This dependency is loop-carried. This snippet can be parallelized by having two sequentially executed loops. The loops themselves are executed in parallel.
 	\subsubsection{Parallel}
 	\inputminted	[linenos]{c}{ex2/b_par.h}
 	\subsubsection{Experiment Results}
+	\begin{tikzpicture}
+		\begin{axis}
+			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex2/b_ser.dat};
+ 			\addplot [color=red, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex2/b_par.dat};
+ 			\legend{serial,parallel}
+		\end{axis}
+	\end{tikzpicture}
 	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/c_ser.h}
+	
+	Statement S4 has a control dependency on S3 and a data dependency on S2. The first instance of statement S4 has a data dependency on S1. This code snippet can be parallelized by replacing the loop by two sequential loops so that all statements within a loop are independent from each other. The control dependency is retained by wrapping the second loop in an if-instruction.
 	\subsubsection{Parallel}
 	\inputminted	[linenos]{c}{ex2/c_par.h}
 	\subsubsection{Experiment Results}
+	\begin{tikzpicture}
+		\begin{axis}
+			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex2/c_ser.dat};
+ 			\addplot [color=red, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{ex2/c_par.dat};
+ 			\legend{serial,parallel}
+		\end{axis}
+	\end{tikzpicture}
 	
 	\section{... And One More Loop to Parallelize}
 	\subsection{Serial}
