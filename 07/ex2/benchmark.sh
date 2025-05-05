@@ -10,7 +10,7 @@ do
 	export OMP_NUM_THREADS=$i
 	for j in $(seq 1 $2) # repeat measurement $2 times
 	do
-		./$1 >> $measurements # store measurement results in <executable>.log
+		./$1 100000000 >> $measurements # store measurement results in <executable>.log
 	done
 	./toTable $measurements $results $2 $i #store table in <executable>.dat
 	rm $measurements

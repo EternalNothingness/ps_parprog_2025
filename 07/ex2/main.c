@@ -9,14 +9,6 @@
 #define SNIPPET "empty.h"
 #endif
 
-void print_array(double* arr, int n) {
-	fprintf(stderr, "[ ");
-	for(int i=0; i<n; ++i) {
-		fprintf(stderr, "%.2f ", *(arr+i));
-	}
-	fprintf(stderr, "]");
-}
-
 void init_array(double* arr, int n) {
 	srand(time(NULL));
 	for(int i=0; i<n; ++i) {
@@ -66,14 +58,13 @@ int main(int argc, char** argv) {
 	double end_time=omp_get_wtime();
 
 	// 'surpress' 'variable not used' warnings
-	print_array(x, n);
-	fprintf(stderr, "\n");
-	print_array(y, n);
-	fprintf(stderr, "\n");
-	print_array(z, n);
-	fprintf(stderr, "\n");
-	fprintf(stderr, "%d", (int) twice);
-	fprintf(stderr, "\n");
+	fprintf(stderr, "%p\n", (void*) x);
+	fprintf(stderr, "%p\n", (void*) x);
+	fprintf(stderr, "%p\n", (void*) x);
+	fprintf(stderr, "%d\n", (int) twice);
+	free(x);
+	free(y);
+	free(z);
 
 	printf("%2.4f\n", end_time-start_time);
 	return EXIT_SUCCESS;
