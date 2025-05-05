@@ -11,5 +11,6 @@ if (twice ) {
 	#pragma omp parallel for schedule(static)
 	for (int i = 1; i<n; i++) {
 		x[i-1] = 2 * x[i-1];
+	}
 }
 #endif
