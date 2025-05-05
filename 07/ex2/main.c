@@ -4,6 +4,7 @@
 #include <time.h>
 #include <omp.h>
 #include <stdbool.h>
+#include <math.h>
 
 #ifndef SNIPPET
 #define SNIPPET "empty.h"
