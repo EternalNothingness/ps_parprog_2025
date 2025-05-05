@@ -1,4 +1,4 @@
-CFLAGS = -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D FILE=$@.h
+CFLAGS = -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D SNIPPET='"$@.h"'
 
 .PHONY: all
 all: toTable a_ser a_par b_ser b_par c_ser c_par
@@ -7,7 +7,7 @@ all: toTable a_ser a_par b_ser b_par c_ser c_par
 clean:
 	$(RM) toTable *.o a_ser a_par b_ser b_par c_ser c_par
 
-toTable: toTable.c common.h
+toTable: toTable.c common.o
 
 common.o: common.c
 

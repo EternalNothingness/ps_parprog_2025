@@ -1,8 +1,12 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include <errno.h>
 #include <time.h>
 #include <omp.h>
-#include <stdio.h>
-#include <stdlib.h>
+
+#ifndef SNIPPET
+#define SNIPPET "a_ser.h"
+#endif
 
 int main(int argc, char** argv) {
 	if(argc!=2) {
@@ -18,11 +22,7 @@ int main(int argc, char** argv) {
     }
 
 	double start_time=omp_get_wtime();
-	#ifdef FILE 
-	for(size_t i=0; i<n; ++i) {
-		#include "FILE"
-	}
-	#endif
+	#include SNIPPET
 	double end_time=omp_get_wtime();
 	printf("%2.4f\n", end_time-start_time);
 	return EXIT_SUCCESS;
