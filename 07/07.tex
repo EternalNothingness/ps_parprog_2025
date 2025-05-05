@@ -39,15 +39,28 @@
 	\section{Parallelisizing more Loops}
 	The dependencies of code snippets are analysized and the code snippets themselves are parallelized. The wall time of both the serial and parallel versions is measured.
 	
+	\subsection{Measurement Method}
+	All measurements were done on the LCC3 cluster by calling \colorbox{lightgray}{sbatch job.sh $<$executable$>$ 3}, e. g. \colorbox{lightgray}{sbatch job.sh a\_ser 3} with the number of iterations set to 100000000.
+	
+	The following scripts are involved in the experiment.
+	\subsubsection{SLURM Script}
+	\inputminted[linenos]{bash}{ex2/job.sh}
+	\subsubsection{Benchmark Script}
+	\inputminted[linenos]{bash}{ex2/benchmark.sh}
+	
 	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/a_ser.h}
+	
+	The zero-th instance of both statements S2 and S3 truly depends on S1: $S1\delta S2, S1\delta S3$. Furthermore, S2 has true loop-carried dependence on S3 and S3 has a true loop-carried dependence on itself: $S3\delta S2, S3\delta S3, S3\delta^{-1} S3$.
 	\subsubsection{Parallel}
 	\inputminted	[linenos]{c}{ex2/a_par.h}
+	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/b_ser.h}
 	\subsubsection{Parallel}
 	\inputminted	[linenos]{c}{ex2/b_par.h}
+	\subsection{}
 	\subsubsection{Serial}
 	\inputminted	[linenos]{c}{ex2/c_ser.h}
 	\subsubsection{Parallel}
