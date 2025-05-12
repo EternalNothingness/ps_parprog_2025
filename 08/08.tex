@@ -1,0 +1,61 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{minted}
+
+\subject{Sheet 08}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Compiler Dependence Analysis}
+	The dependence analysis of compilers is examined.
+	\subsection{Source Code}
+	\inputminted	[linenos]{c}{ex1/analysis.c}
+	
+	\subsection{Makefile}
+	\inputminted{make}{ex1/Makefile}
+	
+	% -ftree-vectorize: perform vectorization on trees.
+	% -fopt-info-vec-all-internals:
+		% -vec: enable dumps of all vectorization optimization
+		% -all: detailed optimization information
+		% -internals: even more detailed information
+	\subsection{Discussion of Compiler Output}
+	The full compiler output can be found in the file 08/ex1/output.log.
+	
+	% notes: bottom-up,
+	
+	\section{Investigation of Code Snippets}
+	\subsection{Safety of Parallelization}
+	The safety of parallelization of the following code is examined.
+	
+	\inputminted	[linenos]{c}{ex2/01.c}
+	
+	It is possible that the arrays x and y overlap each other. One way to parallelize this manually is by using a temporary array z with the 1024*sizeof(double) and splitting the loop into two so that all read accesses from y (storing in z) are done in the first and all write accesses to x (reading from z) are done in the second. Both loops can run in parallel.
+	
+	The function cannot be parallelized by the compiler, because the compiler needs the \_\_restrict\_\_ keyword for both arguments, which implies that two pointers cannot point to overlapping memory regions.
+	
+	\subsubsection{Manually parallelized Loop}
+	\inputminted	[linenos]{c}{ex2/01_par.c}
+	
+	\subsection{Loop Normalization}
+	The following loop should be normalisized.
+	
+	\inputminted	[linenos]{c}{ex2/02.c}
+	
+	\subsubsection{Normalisized Loop}
+	\inputminted	[linenos]{c}{ex2/02_normal.c}
+	
+	\subsection{Parallelizability}
+	It is examined if the following loop is parallelizable.
+	
+	\inputminted	[linenos]{c}{ex2/03.c}
+	
+	The distance vector for all dependencies is $(1,0,-1)$ and therefore the corresponding direction vector is $(<,=,>)$. Thus the outmostloop is not parallelizable. The dependency of the first inner loop is loop-independent, therefore that loop can be parallelized.
+	
+	\subsubsection{Parallelized Loop}
+	\inputminted[linenos]{c}{ex2/03_par.c}
+\end{document}
