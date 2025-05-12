@@ -18,15 +18,12 @@
 	\subsection{Makefile}
 	\inputminted{make}{ex1/Makefile}
 	
-	% -ftree-vectorize: perform vectorization on trees.
-	% -fopt-info-vec-all-internals:
-		% -vec: enable dumps of all vectorization optimization
-		% -all: detailed optimization information
-		% -internals: even more detailed information
 	\subsection{Discussion of Compiler Output}
 	The full compiler output can be found in the file 08/ex1/output.log.
 	
-	% notes: bottom-up,
+	% What information about dependence analysis can you find in the output? Can you identify any information pointing to successful or unsuccessful vectorization? Does the compiler perform any analysis beyond checking for dependencies and semantic correctness? What are your findings?
+	
+	Only the loop starting at line 10 has been successfully optimized. The last loop has not been optimized because the statement "clobbers memory" (which means here that the function call printf cannot be analyzed). The prelest loop starting at line 22 is analyzed using different vector modes and finally fails to vectorize the loop. The loop starting at line 10 has been optimized using 16 byte vectors. The loop starting at line 15 has not been vectorized because "more than one data ref in stmt" (probably because a and be could overlap). The loop starting at line 18 has also not been vectorized because the compiler previously recognized that the loop just performs a shift operation and has replaced it with an appropriate builtin-function.
 	
 	\section{Investigation of Code Snippets}
 	\subsection{Safety of Parallelization}
