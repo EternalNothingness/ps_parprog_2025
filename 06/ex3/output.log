@@ -1,0 +1,5 @@
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D SCHEDULING=static    hadamard.c   -o hadamard
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D SCHEDULING=static    mandelbrot.c   -o mandelbrot
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D SCHEDULING=static   -c -o common.o common.c
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm -D SCHEDULING=static    toTable.c common.o   -o toTable
+rm -f hadamard mandelbrot toTable *.o

@@ -1,0 +1,4 @@
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    mandelbrot.c   -o mandelbrot
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm   -c -o common.o common.c
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    toTable.c common.o   -o toTable
+rm -f mandelbrot toTable *.o
