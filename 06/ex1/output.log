@@ -1,0 +1,7 @@
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    serial.c   -o serial
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    atomic.c   -o atomic
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    critical.c   -o critical
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    reduction.c   -o reduction
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm   -c -o common.o common.c
+cc -std=gnu11 -Wall -Werror -Wextra -fopenmp -O3 -lm    toTable.c common.o   -o toTable
+rm -f serial atomic critical reduction common.o toTable
