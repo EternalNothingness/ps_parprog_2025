@@ -1,7 +1,7 @@
 #!/bin/bash
 # Usage: ./benchmark.sh <executable> <number_of_measurements>
 
-N=1500 # size of matrix
+N=500 # size of matrix
 results=$1".dat"
 echo "x y ey" > $results # create header
 make toTable
