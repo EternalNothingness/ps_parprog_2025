@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 		return EXIT_FAILURE;
 	}
 	if (size < 0) {
-		fprintf(stderr, "Error: matrix size must not be negative!\n");
+		fprintf(stderr, "Error: array size must not be negative!\n");
 		return EXIT_FAILURE;
 	}
 
