@@ -5,6 +5,7 @@ results=$1".dat"
 echo "x y ey" > $results # create header
 make toTable
 make $1
+export OMP_NUM_THREADS=$(nproc) # set number of threads to the number of processing units available
 for i in 100000 500000 1000000 # size of of arrays
 do
 	measurements=$i"_"$1".log" 

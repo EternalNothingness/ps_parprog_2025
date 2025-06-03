@@ -67,9 +67,14 @@ int main(int argc, char **argv) {
 	double start_time = omp_get_wtime();
 #include SNIPPET
 	double end_time = omp_get_wtime();
+
+	// ensure that variables do not get removed by optimizing
+	float res=0;
+	#pragma omp parallel for reduction(+: res)
 	for(long i=0; i<size; ++i) {
-		fprintf(stderr, "a[%ld] = %.3g\n", i, a[i]);
+		res+=a[i]/size;
 	}
+	fprintf(stderr, "average result = %.3e for size = %ld\n", res, size);
 	printf("time: %2.2f seconds\n", end_time - start_time);
 
 	// cleanup
