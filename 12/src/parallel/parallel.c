@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "globals.h"
-#include "randdp.h"
-#include "timers.h"
-#include "print_results.h"
+#include "../globals.h"
+#include "../randdp.h"
+#include "../timers.h"
+#include "../print_results.h"
 
 
 static void setup(int *n1, int *n2, int *n3);
