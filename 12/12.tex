@@ -12,19 +12,34 @@
 	\maketitle
 	
 	\section{Profiling}
+	\label{profiling}
+	The performance profile for a serial implementation of a numerical algorithm is measured and analysized.
 	\subsection{Performance profile}
-	The performance profile was created using gprof.
-	
-	\inputminted	[linenos,breaklines]{}{src/analysis.txt}
+	The performance profil can be found in src/analysis.txt.
+	% \inputminted	[linenos,breaklines]{}{src/analysis.txt}
 
-	%TODO Discussion
+	The performance profile has been measured using \colorbox{lightgray}{gprof}. It shows how much time a program has spent in a function and how many times the function has been called. This helps to determine which parts of the program take the most time to execute, thus possibly revealing where hypothetical performance improvements would have the largest impact and giving hints about the number of iterations of loops in which functions are called.
+	
+	In the following, the performance data of the measured program's functions is analyzed.
+	
+	\begin{description}
+		\item[resid] The program has spent over 40\% of its runtime in this function, making it a prime canditate for further inspection. It has also the largest total runtime per function call (while the number of function calls is not so impressive), which means that improvements within the function might have a greater effect than parallelizing a hypothetical loop in which the function might be called.
+		\item[psinv] Being second place in both total runtime (ca. 20\%) and runtime per function call, this function is also a good canditate for further insepction.
+		\item[vranlc] Being third place in total runtime but having an almost neglible runtime per function call, the best performance improvement is likely to be gained by parallelizing the loop in which this function is called.
+		\item[rprj3] This function takes slightly less than 10\% of the program's total runtime and is called within a loop and contains a loop in itself. It will take further analysis (or tests) to determine parallelizing which loop has the better effect on performance. 
+		\item[interp] The situation is similar to that of rprj3.
+		\item[other] The remaining functions have no measurable effect on runtime and can thus be ignored.
+	\end{description}
 	
 	\section{Parallelizing}
+	The program which performance profile has been measured in \ref{profiling} gets parallelized and compared to the serial implementation.
 	\subsection{Source Code}
 	\subsubsection{Serial}
+	The source code for the serial implementation can be found in src/serial/serial.c.
 	\subsubsection{Parallel}
+	The source code for the parallel implementation can be found in src/parallel/parallel.c.
 	\subsection{Measurement Method}
-	All measurements were done by calling \colorbox{lightgray}{sbatch job.sh $<$executable$>$ 3}, e. g. \colorbox{lightgray}{sbatch job.sh serial 3} (3 is the number of measurements).
+	All measurements were done by calling \colorbox{lightgray}{sbatch job.sh $<$executable$>$ 3}, e. g. \colorbox{lightgray}{sbatch job.sh serial.out 3} (3 is the number of measurements).
 	
 	The following scripts are involved in the experiment.
 	\subsubsection{SLURM Script}
@@ -36,10 +51,10 @@
 		\begin{axis}[xlabel={number of threads}, ylabel={t/s}]
 			\addplot [color=blue, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
- 			table[x =x, y =y, y error =ey]{src/serial.dat};
- 			\addplot [color=blue, only marks, mark=o,]
+ 			table[x =x, y =y, y error =ey]{src/serial.out.dat};
+ 			\addplot [color=red, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
- 			table[x =x, y =y, y error =ey]{src/parallel.dat};
+ 			table[x =x, y =y, y error =ey]{src/parallel.out.dat};
  			\legend{serial, parallel}
 		\end{axis}
 	\end{tikzpicture}

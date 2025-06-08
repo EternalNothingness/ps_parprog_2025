@@ -3,7 +3,7 @@
 
 results=$1".dat"
 echo "x y ey" > $results # create header
-make to_table_row
+make to_table_row.out
 make $1
 for i in 1 2 6 12 # number of threads
 do
@@ -13,7 +13,7 @@ do
 	do
 		./$1 >> $measurements # store measurement results in <executable>.log
 	done
-	./to_table_row_row $measurements $results $2 $i #store table row in <executable>.dat
+	./to_table_row.out $measurements $results $2 $i #store table row in <executable>.dat
 	rm $measurements
 done
 make clean
