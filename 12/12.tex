@@ -1,0 +1,46 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{minted}
+\usepackage{pgfplots,filecontents}
+
+\subject{Sheet 12}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Profiling}
+	\subsection{Performance profile}
+	The performance profile was created using gprof.
+	
+	\inputminted	[linenos,breaklines]{}{src/analysis.txt}
+
+	%TODO Discussion
+	
+	\section{Parallelizing}
+	\subsection{Source Code}
+	\subsubsection{Serial}
+	\subsubsection{Parallel}
+	\subsection{Measurement Method}
+	All measurements were done by calling \colorbox{lightgray}{sbatch job.sh $<$executable$>$ 3}, e. g. \colorbox{lightgray}{sbatch job.sh serial 3} (3 is the number of measurements).
+	
+	The following scripts are involved in the experiment.
+	\subsubsection{SLURM Script}
+	\inputminted[linenos,breaklines]{bash}{src/job.sh}
+	\subsubsection{Benchmark Script}
+	\inputminted[linenos,breaklines]{bash}{src/benchmark.sh}
+	\subsection{Experiment Results}
+	\begin{tikzpicture}
+		\begin{axis}[xlabel={number of threads}, ylabel={t/s}]
+			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{src/serial.dat};
+ 			\addplot [color=blue, only marks, mark=o,]
+			plot [error bars/.cd, y dir = both, y explicit]
+ 			table[x =x, y =y, y error =ey]{src/parallel.dat};
+ 			\legend{serial, parallel}
+		\end{axis}
+	\end{tikzpicture}
+\end{document}
