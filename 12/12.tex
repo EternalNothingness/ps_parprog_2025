@@ -18,16 +18,25 @@
 	The performance profil can be found in src/analysis.txt.
 	% \inputminted	[linenos,breaklines]{}{src/analysis.txt}
 
-	The performance profile has been measured using \colorbox{lightgray}{gprof}. It shows how much time a program has spent in a function and how many times the function has been called. This helps to determine which parts of the program take the most time to execute, thus possibly revealing where hypothetical performance improvements would have the largest impact and giving hints about the number of iterations of loops in which functions are called.
+	The performance profile has been measured using \colorbox{lightgray}{gprof} using the appropriate compiler flag, but without any other option. The first part shows how much time a program has spent in a function and how many times the function has been called. This helps to determine which parts of the program take the most time to execute, thus possibly revealing where hypothetical performance improvements would have the largest impact and giving hints about the number of iterations of loops in which functions are called.
+	
+	The second part shows the call tree. The function in a row entry with the index number at the left is the current function. The lines above in the same row list the functions that called this function and the lines below list those that were called by this function. The table shows how much time has been spent in a function, how much time children contributed to the time of their parents, how often a function called another, etc. This can help to determine in which part of the code has been much time spent.
 	
 	In the following, the performance data of the measured program's functions is analyzed.
 	
 	\begin{description}
-		\item[resid] The program has spent over 40\% of its runtime in this function, making it a prime canditate for further inspection. It has also the largest total runtime per function call (while the number of function calls is not so impressive), which means that improvements within the function might have a greater effect than parallelizing a hypothetical loop in which the function might be called.
-		\item[psinv] Being second place in both total runtime (ca. 20\%) and runtime per function call, this function is also a good canditate for further insepction.
-		\item[vranlc] Being third place in total runtime but having an almost neglible runtime per function call, the best performance improvement is likely to be gained by parallelizing the loop in which this function is called.
-		\item[rprj3] This function takes slightly less than 10\% of the program's total runtime and is called within a loop and contains a loop in itself. It will take further analysis (or tests) to determine parallelizing which loop has the better effect on performance. 
-		\item[interp] The situation is similar to that of rprj3.
+		\item[resid] The program has spent over 40\% of its runtime in this function, making it a prime canditate for further inspection. It has also the largest total runtime per function call (while the number of function calls is not so impressive), which means that improvements within the function might have a greater effect than parallelizing a hypothetical loop in which the function might be called. It is notable that the function's largest contribution to runtime comes from its call in mg3P.constprob.0. A comparatively small (but still somewhat notable) portion of its runtime is caused by its child function's child vranlc.
+		
+		\item[psinv] Being second place in both total runtime (ca. 20\%) and runtime per function call, this function is also a good canditate for further insepction. This function gets exclusively called in mg3P.constprob.0. Some portion of its runtime is caused by its child function's child vranlc.
+		
+		\item[vranlc] Being third place in total runtime but having an almost neglible runtime per function call, the best performance improvement is likely to be gained by parallelizing the loop in which this function is called. This function is exclusively called in norm2u3. It is notable that this function is a grandchild of several other functions that also contribute significantly to runtime, because parallelizing either likely prevents parallelizing the other.
+		
+		\item[rprj3] This function takes slightly less than 10\% of the program's total runtime and is called within a loop and contains a loop in itself. It will take further analysis (or tests) to determine parallelizing which loop has the better effect on performance. This function is exclusively called in mg3P.constprob.0. About  33\% of its contribution to runtime get caused by its child function's child vranlc.
+		
+		\item[interp] The situation is similar to that of rprj3 with the exception that it calls no other function. This is great, because parallelizing it does not prevent parallelizing of its children.
+		
+		\item[mg3P.constprob.0] This function does not contribute itself much to the runtime, but calls many other functions with relevant runtimes.
+		
 		\item[other] The remaining functions have no measurable effect on runtime and can thus be ignored.
 	\end{description}
 	
