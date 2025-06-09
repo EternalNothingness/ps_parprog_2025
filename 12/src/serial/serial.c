@@ -306,6 +306,7 @@ int main()
   //---------------------------------------------------------------------
   if (timeron) {
     tmax = timer_read(T_bench);
+    fprintf(stderr, "time: %2.2f seconds\n", tmax);
     if (tmax == 0.0) tmax = 1.0;
 
     printf("  SECTION   Time (secs)\n");

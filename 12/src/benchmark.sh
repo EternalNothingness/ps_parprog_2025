@@ -11,7 +11,7 @@ do
 	measurements=$i"_"$1".log" 
 	for j in $(seq 1 $2) # repeat measurement $2 times
 	do
-		./$1 >> $measurements # store measurement results in <executable>.log
+	    ./$1 2>> $measurements # store measurement results in <executable>.log
 	done
 	./to_table_row.out $measurements $results $2 $i #store table row in <executable>.dat
 	rm $measurements
