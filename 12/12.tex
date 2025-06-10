@@ -29,11 +29,11 @@
 		
 		\item[psinv] Being second place in both total runtime (ca. 20\%) and runtime per function call, this function is also a good canditate for further insepction. This function gets exclusively called in mg3P.constprob.0. Some portion of its runtime is caused by its child function's child vranlc.
 		
-		\item[vranlc] Being third place in total runtime but having an almost neglible runtime per function call, the best performance improvement is likely to be gained by parallelizing the loop in which this function is called. This function is exclusively called in norm2u3. It is notable that this function is a grandchild of several other functions that also contribute significantly to runtime, because parallelizing either likely prevents parallelizing the other.
+		\item[vranlc] Being third place in total runtime but having an almost neglible runtime per function call, the best performance improvement is likely to be gained by parallelizing the loop in which this function is called. This function is exclusively called in norm2u3. It is notable that this function is a grandchild of several other functions that also contribute significantly to runtime, because parallelizing both likely requires nesting of tasks.
 		
 		\item[rprj3] This function takes slightly less than 10\% of the program's total runtime and is called within a loop and contains a loop in itself. It will take further analysis (or tests) to determine parallelizing which loop has the better effect on performance. This function is exclusively called in mg3P.constprob.0. About  33\% of its contribution to runtime get caused by its child function's child vranlc.
 		
-		\item[interp] The situation is similar to that of rprj3 with the exception that it calls no other function. This is great, because parallelizing it does not prevent parallelizing of its children.
+		\item[interp] The situation is similar to that of rprj3 with the exception that it calls no other function. Therefore no nesting of tasks is needed if this function can be parallelized.
 		
 		\item[mg3P.constprob.0] This function does not contribute itself much to the runtime, but calls many other functions with relevant runtimes.
 		
@@ -57,7 +57,7 @@
 	\inputminted[linenos,breaklines]{bash}{src/benchmark.sh}
 	\subsection{Experiment Results}
 	\begin{tikzpicture}
-		\begin{axis}[xlabel={number of threads}, ylabel={t/s}]
+		\begin{axis}[xlabel={number of threads}, ylabel={t/s}, legend pos=outer north east]
 			\addplot [color=blue, only marks, mark=o,]
 			plot [error bars/.cd, y dir = both, y explicit]
  			table[x =x, y =y, y error =ey]{src/serial.out.dat};
