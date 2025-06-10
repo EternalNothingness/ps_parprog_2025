@@ -14,5 +14,4 @@
 # Enforce exclusive node allocation, do not share with other jobs
 #SBATCH --exclusive
 
-module load gcc 12.2.0
 ./benchmark.sh $1 $2

@@ -19,7 +19,7 @@ serial.out: $(SRC) serial/serial.c
 	@$(CC) $(CC_FLAGS) $(SRC) serial/serial.c -pg -o $@
 
 parallel.out: $(SRC) parallel/parallel.c
-	@$(CC) $(CC_FLAGS) $(SRC) parallel/parallel.c -pg -o $@
+	@$(CC) $(CC_FLAGS) $(SRC) parallel/parallel.c -fopenmp -o $@
 
 .PHONEY: clean
 clean:
