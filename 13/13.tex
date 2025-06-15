@@ -13,29 +13,56 @@
 	\maketitle
 	
 	\section{Strength Reduction}
-	\subsection{Source Code}
 	\begin{enumerate}[label=\alph*)]
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/a.c}
 		
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/a_reduced.c}
 		
+		The transformation should be applied if a shift operation is cheaper than a multiplication.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/a.S}
+		
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/b.c}
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/b_reduced.c}
+		
+		The transformation should be applied if a shift operation, followed by a subtraction, is cheaper than a multiplication.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/b.S}
 		
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/c.c}
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/c_reduced.c}
 		
+		The transformation should be applied if two shift operations and an addition are cheaper than a multiplication.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/c.S}
+		
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/d.c}
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/d_reduced.c}
+		
+		The transformation should be applied if a shift operation is cheaper than a division.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/d.S}
 		
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/e.c}
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/e_reduced.c}
 		
+		The transformation can always be applied, because the transformation eleminates N/5 multiplications and otherwise replaces N/5 increment operations with the same number of ordinary additions.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/e.S}
+		
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/f.c}
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/f_reduced.c}
 		
+		The transformation can be applied if a division and N multiplications are cheaper than N divisions.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/f.S}
+		
 		\item Original: \inputminted[linenos,breaklines]{c}{ex1/g.c}
 		reduced: \inputminted[linenos,breaklines]{c}{ex1/g_reduced.c}
+		
+		The transformation can be applied if defining an union, assigning a value to a variable, bitwise inversion and an Exor operation are cheaper than a floating point multiplication.
+		
+		\inputminted[linenos,breaklines]{gas}{ex1/g.S}
 	\end{enumerate}
 	
 \end{document}
