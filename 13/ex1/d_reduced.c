@@ -1,1 +1,1 @@
-unsigned c2 = 0.125 * c1;
+unsigned c2 = c1 >> 3;

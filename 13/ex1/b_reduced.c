@@ -1,1 +1,1 @@
-unsigned c2 = 15 * c1;
+unsigned c2 = (c1 << 4) - c1;

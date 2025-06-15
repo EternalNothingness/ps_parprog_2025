@@ -1,1 +1,1 @@
-unsigned c2 = 32 * c1;
+unsigned c2 = c1 << 5;
