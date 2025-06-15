@@ -1,0 +1,41 @@
+\documentclass[parskip]{scrartcl}
+
+\usepackage{minted}
+\usepackage{pgfplots,filecontents}
+\usepackage{enumitem}
+
+\subject{Sheet 11}
+\title{PS Parallel Programming}
+\author{Patrick Wintner}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	\section{Strength Reduction}
+	\subsection{Source Code}
+	\begin{enumerate}[label=\alph*)]
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/a.c}
+		
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/a_reduced.c}
+		
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/b.c}
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/b_reduced.c}
+		
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/c.c}
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/c_reduced.c}
+		
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/d.c}
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/d_reduced.c}
+		
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/e.c}
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/e_reduced.c}
+		
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/f.c}
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/f_reduced.c}
+		
+		\item Original: \inputminted[linenos,breaklines]{c}{ex1/g.c}
+		reduced: \inputminted[linenos,breaklines]{c}{ex1/g_reduced.c}
+	\end{enumerate}
+	
+\end{document}
